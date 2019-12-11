@@ -123,7 +123,7 @@
 		<property name="title" value="Ejemplo de request número 2"/>
 		<property name="ticker" value="RAAAA-00001"/>
 		<property name="moment" value="2016/06/15 18:00"/>
-		<property name="deadline" value="2019/12/10 08:00"/>
+		<property name="deadline" value="2020/12/10 08:00"/>
 		<property name="text" value="Descripción del request ejemplo número 2"/>
 		<property name="reward" value="13500.0 €"/>
 	</bean>
