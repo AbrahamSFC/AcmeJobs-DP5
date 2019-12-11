@@ -1,0 +1,14 @@
+authenticated.job.form.label.reference = Referencia
+authenticated.job.form.label.title = Título
+authenticated.job.form.label.deadline = Fecha de vencimiento
+authenticated.job.form.label.salary = Salario
+authenticated.job.form.label.moreInfo = Más info
+authenticated.job.form.label.description = Descripción
+authenticated.job.form.button.return = Volver
+
+authenticated.job.form.panel.descriptor.duties = Panel de servicios
+authenticated.job.form.label.descriptor.description = Descripción del descriptor
+authenticated.job.form.label.status = Estado
+authenticated.job.list.label.reference = Referencia
+authenticated.job.list.label.description = Descripción
+authenticated.job.list.label.title = Título

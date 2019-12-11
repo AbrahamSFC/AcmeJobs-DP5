@@ -1,0 +1,25 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+auditor.jobsMine.list.label.title = Title
+auditor.jobsMine.list.label.deadline = Deadline
+auditor.jobsMine.list.label.salary = Salary
+auditor.jobsMine.form.label.descriptor.description = Descriptor description
+auditor.jobsMine.form.panel.descriptor.duties = Duties panel
+auditor.jobsMine.form.button.return = Return
+auditor.jobsMine.form.button.list-audits-job = Audits of this job
+auditor.jobsMine.form.label.title = Title
+auditor.jobsMine.form.label.moreInfo = More info
+auditor.jobsMine.form.label.reference = Reference
+auditor.jobsMine.form.label.status = Status
+auditor.jobsMine.form.label.deadline = Deadline
+auditor.jobsMine.form.label.salary = Salary
+
+

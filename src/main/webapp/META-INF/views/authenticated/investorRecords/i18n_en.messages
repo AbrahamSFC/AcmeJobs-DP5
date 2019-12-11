@@ -1,0 +1,11 @@
+authenticated.investorRecords.form.label.name= Title:
+authenticated.investorRecords.form.label.sector= Sector:
+authenticated.investorRecords.form.label.investingStatements= Investing Statements:
+authenticated.investorRecords.form.label.ratings= Ratings:
+authenticated.investorRecords.form.button.return= Return
+
+
+
+
+authenticated.investorRecords.list.label.name= Name
+authenticated.investorRecords.list.label.investingStatements= Investing Statements

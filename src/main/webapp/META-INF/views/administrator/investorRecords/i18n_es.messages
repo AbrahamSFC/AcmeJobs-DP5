@@ -1,0 +1,14 @@
+administrator.investorRecords.form.label.name= Nombre:
+administrator.investorRecords.form.label.sector= Sector:
+administrator.investorRecords.form.label.investingStatements= Inversión:
+administrator.investorRecords.form.label.ratings= Valoraciones:
+administrator.investorRecords.form.button.return= Volver atrás
+
+administrator.investorRecords.form.button.create= Crear
+administrator.investorRecords.form.button.delete= Eliminar
+administrator.investorRecords.form.button.update= Actualizar
+
+administrator.investorRecords.must-be-euros= La moneda debe ser Euro
+
+administrator.investorRecords.list.label.name= Nombre
+administrator.investorRecords.list.label.investingStatements= Inversión realizada

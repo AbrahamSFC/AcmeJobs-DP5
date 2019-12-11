@@ -10,15 +10,16 @@
 
 # master.banner.welcome #######################################################
 
-master.banner.background = #FFE97F 
+master.banner.background = #404040
 
-﻿# master.welcome ##############################################################
+# master.welcome ##############################################################
 
 master.welcome.title = ¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme Stater!  Nunca antes ha sido tan sencillo desarrollar un \
-	proyecto y hacerlo funcionar.
+	¡Bienvenidos a Acme Jobs!  ¡Nunca antes ha sido tan sencillo encontrar un \
+	trabajo!
 
+	
 # master.menu #################################################################
 
 master.menu.home = Inicio
@@ -29,23 +30,98 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.abraham-favourite-link = Enlace favorito de Abraham
+master.menu.anonymous.antonio-favourite-link = Enlace favorito de Antonio
+master.menu.anonymous.chao-favourite-link = Enlace favorito de Chao
+master.menu.anonymous.martin-favourite-link = Enlace favorito de Martin
+master.menu.anonymous.david-favourite-link = Enlace favorito de David
+master.menu.anonymous.jose-favourite-link = Enlace favorito de Jose
+master.menu.anonymous.list-shouts = Listar gritos
+master.menu.anonymous.shout = Gritar!
+master.menu.anonymous.fernandez-list = Listar FernandezBoletín
+master.menu.anonymous.fernandez-create = Crear FernandezBoletín
+master.menu.anonymous.guerrero-create = Crear GuerreroBoletín
+master.menu.anonymous.guerrero-list = Listar GuerreroBoletín
+master.menu.anonymous.garcia-create = Crear GarciaBoletín
+master.menu.anonymous.garcia-list = Listar GarciaBoletín
+master.menu.anonymous.delgado-list = Listar DelgadoBoletín
+master.menu.anonymous.delgado-create = Crear DelgadoBoletín
+master.menu.anonymous.soto-create = Crear SotoBoletín
+master.menu.anonymous.soto-list = Listar SotoBoletín
+master.menu.anonymous.hu-create = Crear HuBoletín
+master.menu.anonymous.hu-list = Listar HuBoletín
+master.menu.anonymous.bulletins = Boletines
+master.menu.anonymous.announcement-list= Listar anuncios
+master.menu.anonymous.investorRecords-list= Listar inversiones
+master.menu.anonymous.records-list= Listar registro  de compañías
+master.menu.anonymous.topInvestorRecords-list= Listar inversiones top
+master.menu.anonymous.topRecords-list= Listar registro  de compañías top
+
+# master.menu.authenticated ###################################################
+master.menu.authenticated= Autenticado
+master.menu.authenticated.announcement-list = Listar anuncios
+master.menu.authenticated.request2-list= Listar solicitudes
+master.menu.authenticated.offer-list= Listar ofertas
+master.menu.authenticated.investorRecords-list= Listar inversiones
+master.menu.authenticated.challenge-list = Listar desafíos
+master.menu.authenticated.records-list= Listar registros de compañías
+master.menu.authenticated.job-list = Listar trabajos
+master.menu.authenticated.list-message-thread=   Listar hilos de mensajes
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.shutdown = Parar el sistema
+master.menu.administrator.announcement-list= Anuncios
+
+master.menu.administrator.investorRecords-list= Inversiones
+
+master.menu.administrator.spam-list= Lista de spam
+
+master.menu.administrator.records-list= Registros de compañías
+
+
+master.menu.administrator.challenge = Desafíos
+
+master.menu.administrator.commercialBanner= Banner comercial
+master.menu.administrator.noncommercialBanner=Banner no comercial
+
+master.menu.administrator.dashboard= Tablero
+master.menu.administrator.chart= Gráfica
 
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
-master.menu.provider.favourite-link = Enlace favorito
+master.menu.provider.request2 = Crear solicitud
 
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumidor
-master.menu.consumer.favourite-link = Enlace favorito
+master.menu.consumer.offer-create = Crear oferta
+
+# master.menu.employer ##########################################################
+
+master.menu.employer= Empleador
+master.menu.employer.job-list= Listar todos mis trabajos
+master.menu.employer.applications-list= Listar todas las solicitudes de mis trabajos
+
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor= Patrocinador
+master.menu.sponsor.commercial-banner-list = Listar mis banners comerciales
+master.menu.sponsor.commercial-non-banner-list = Listar mis banners no comerciales
+
+# master.menu.auditor ##########################################################
+master.menu.auditor = Auditor
+master.menu.auditor.mineJobs-list = Listar trabajos con mi registro de auditoría
+master.menu.auditor.nonMineJobs-list = Listar trabajos sin mi registro de auditoría
+
+# master.menu.worker ##########################################################
+
+master.menu.worker= Trabajador
+master.menu.worker.applications-list= Listar todas mis solicitudes
+
 
 # master.menu.user-account ####################################################
 
@@ -55,8 +131,16 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-employer = Hazte empleador
+master.menu.user-account.employer = Datos de empleador
+master.menu.user-account.become-sponsor = Hazte patrocinador
+master.menu.user-account.sponsor = Datos de patrocinador
+master.menu.user-account.become-worker = Hazte trabajador
+master.menu.user-account.worker = Datos de trabajador
+master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.auditor = Datos de auditor
 
-﻿# master.footer ###############################################################
+# master.footer ###############################################################
 
 master.footer.title.about = Nosotros
 master.footer.label.company = La empresa
@@ -64,21 +148,23 @@ master.footer.label.license = Licencia
 master.footer.title.social = Social
 master.footer.label.linked-in = Linked-In
 master.footer.label.twitter = Twitter
-master.footer.title.languages = Lenguages
+master.footer.label.instagram = Instagram
+master.footer.label.facebook = Facebook
+master.footer.title.languages = Idiomas
 master.footer.label.english = Inglés
 master.footer.label.spanish = Español
 
 # master.company ##############################################################
 
-master.company.title = La compañía
+master.company.title = Acme Jobs, Inc.
 master.company.text = \
-	Starter Project, Inc. es una compañía fictícia que proporciona un proyecto \
+	Acme Jobs, Inc. es una compañía fictícia que proporciona un proyecto \
 	plantilla para los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
 	en Ingeniería del Software de la Universidad de Sevilla.
-master.company.name = Starter Project, Inc.
-master.company.address = Calle, número, Ciudad, Estado, País
-master.company.phone = +000 123 456
-master.company.email = contact@acme.com
+master.company.name = Acme Jobs, Inc.
+master.company.address = Antonio Banderas, 14, Sevilla, Andalucía, España
+master.company.phone = +954 403 456
+master.company.email = contact@acmejobs.com
 
 # master.license ##############################################################
 
@@ -92,3 +178,4 @@ master.license.text = \
 	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
 	local de su navegador para saber dónde tienen que ir algunos botones.
 	
+

@@ -1,0 +1,23 @@
+
+administrator.challenge.list.label.title = Título:
+administrator.challenge.list.label.description = Descripción:
+administrator.challenge.list.button.create = Crear
+
+administrator.challenge.must-be-after = La fecha límite debe ser posterior a la fecha actual
+
+
+administrator.challenge.form.button.update = Actualizar
+administrator.challenge.form.button.delete = Eliminar
+administrator.challenge.form.button.create = Crear
+administrator.challenge.form.button.return = Volver atrás
+administrator.challenge.form.label.description = Descripción
+administrator.challenge.form.label.title = Título
+administrator.challenge.form.label.deadline = Fecha límite
+administrator.challenge.form.label.goalGold = Objetivo oro
+administrator.challenge.form.label.goalSilver = Objetivo plata
+administrator.challenge.form.label.goalBronze = Objetivo bronce
+administrator.challenge.form.label.rewardGold = Recompensa oro
+administrator.challenge.form.label.rewardSilver = Recompensa plata 
+administrator.challenge.form.label.rewardBronze = Recompensa bronce
+
+

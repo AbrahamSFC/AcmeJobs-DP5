@@ -1,0 +1,11 @@
+administrator.spam.form.label.spamWords= Palabras de spam:
+administrator.spam.form.label.umbral=  Umbral:
+
+administrator.spam.form.button.return= Volver atrás
+
+administrator.spam.form.button.update= Actualizar
+
+
+
+administrator.spam.list.label.umbral= Umbral:
+administrator.spam.list.label.spamWords= Palabras de spam:

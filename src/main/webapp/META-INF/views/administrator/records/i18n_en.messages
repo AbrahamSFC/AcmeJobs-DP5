@@ -1,0 +1,38 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Jose Delgado.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software, It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.records.list.label.company= Company:
+administrator.records.list.label.sector= Sector:
+administrator.records.list.label.CEO= CEO:
+administrator.records.list.label.activities= Activities:
+administrator.records.list.label.web= Web:
+administrator.records.list.label.phone= Phone:
+administrator.records.list.label.email= Email:
+administrator.records.list.label.incorporated= Incorporated:
+administrator.records.list.label.stars= Stars:
+administrator.records.list.button.create= Create
+
+
+
+
+
+administrator.records.form.label.company= Company:
+administrator.records.form.label.sector= Sector:
+administrator.records.form.label.CEO= CEO:
+administrator.records.form.label.activities= Activities:
+administrator.records.form.label.web= Web:
+administrator.records.form.label.phone= Phone:
+administrator.records.form.label.email= Email:
+administrator.records.form.label.incorporated= Incorporated:
+administrator.records.form.label.stars= Stars:
+administrator.records.form.button.update= Update
+administrator.records.form.button.delete= Delete
+administrator.records.form.button.create= Create
+administrator.records.form.button.return= Return

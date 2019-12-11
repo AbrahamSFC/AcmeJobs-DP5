@@ -1,0 +1,5 @@
+administrator.dashboard.form.label.avgJobsEmployer = Average number of jobs per employer
+administrator.dashboard.form.label.avgApplicationsEmployer = Average number of applications per employer
+administrator.dashboard.form.label.avgApplicationsWorker = Average number of applications per worker
+
+

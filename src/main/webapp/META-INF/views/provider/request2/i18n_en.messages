@@ -1,0 +1,21 @@
+provider.request2.form.label.title= Title:
+provider.request2.form.label.ticker= Id:
+provider.request2.form.label.moment= Moment:
+provider.request2.form.label.deadline= Deadline:
+provider.request2.form.label.text= Text:
+provider.request2.form.label.reward= Reward:
+provider.request2.form.label.confirm= Confirm
+provider.request2.form.button.return= Return
+provider.request2.form.button.create= Create
+
+
+
+provider.request2.list.label.moment= Moment
+provider.request2.list.label.deadline= Deadline
+provider.request2.list.label.title= Title
+provider.request2.list.label.reward= Reward
+
+provider.request2.error.must-confirm = Must confirm
+provider.request2.error.incorrect-currency = Incorrect currency
+provider.request2.error.must-be-after = Must be in the future
+provider.request2.error.unique-ticker = This ticker already exist

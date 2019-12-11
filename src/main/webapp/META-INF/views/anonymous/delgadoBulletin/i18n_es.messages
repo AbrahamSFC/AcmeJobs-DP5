@@ -1,0 +1,11 @@
+
+anonymous.bulletin.form.label.author= Autor:
+anonymous.bulletin.form.label.numWallet= NumWallet:
+anonymous.bulletin.form.label.initiative= Iniciativa:
+anonymous.bulletin.form.button.create= Crear
+anonymous.bulletin.form.button.return= Volver
+
+anonymous.bulletin.list.label.moment= Momento
+anonymous.bulletin.list.label.author= Autor
+anonymous.bulletin.list.label.numWalle = NumWalle
+anonymous.bulletin.list.label.initiative = Iniciativa

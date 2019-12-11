@@ -25,6 +25,8 @@
 	<acme:footer-subpanel code="master.footer.title.social">
 		<acme:footer-option icon="fab fa-linkedin" code="master.footer.label.linked-in" action="http://www.linkedin.com/" newTab="true"/>
 		<acme:footer-option icon="fab fa-twitter" code="master.footer.label.twitter" action="https://twitter.com/" newTab="true"/>
+		<acme:footer-option icon="fab fa-instagram" code="master.footer.label.instagram" action="https://instagram.com/" newTab="true"/>
+		<acme:footer-option icon="fab fa-facebook" code="master.footer.label.facebook" action="https://facebook.com/" newTab="true"/>
 	</acme:footer-subpanel>
 	
 	<acme:footer-subpanel code="master.footer.title.languages">

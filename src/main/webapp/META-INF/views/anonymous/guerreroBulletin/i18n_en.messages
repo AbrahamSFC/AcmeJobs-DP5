@@ -1,0 +1,14 @@
+
+
+
+anonymous.bulletin.form.label.author= Author:
+anonymous.bulletin.form.label.description= Description:
+anonymous.bulletin.form.label.instrument = Instrument:
+anonymous.bulletin.form.button.create= Create!
+anonymous.bulletin.form.button.return= Return
+
+
+anonymous.bulletin.list.label.moment= Moment
+anonymous.bulletin.list.label.instrument= Instrument
+anonymous.bulletin.list.label.author= Author
+anonymous.bulletin.list.label.description= Description

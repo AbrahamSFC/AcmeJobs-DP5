@@ -1,0 +1,11 @@
+
+anonymous.bulletin.form.label.author= Autor:
+anonymous.bulletin.form.label.description= Descripción:
+anonymous.bulletin.form.label.song = Canción:
+anonymous.bulletin.form.button.create= Crear
+anonymous.bulletin.form.button.return= Volver
+
+anonymous.bulletin.list.label.moment= Momento
+anonymous.bulletin.list.label.author= Autor
+anonymous.bulletin.list.label.song = Canción
+anonymous.bulletin.list.label.description= Descripción

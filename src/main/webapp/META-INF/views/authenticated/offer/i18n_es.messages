@@ -1,0 +1,14 @@
+authenticated.offer.form.label.title= Título:
+authenticated.offer.form.label.moment= Momento:
+authenticated.offer.form.label.deadline= Fecha límite:
+authenticated.offer.form.label.text= Texto:
+authenticated.offer.form.label.minMoney= Dinero mínimo:
+authenticated.offer.form.label.maxMoney= Dinero máximo:
+authenticated.offer.form.label.ticker= Identificador:
+authenticated.offer.form.button.return= Volver
+
+authenticated.offer.list.label.deadline=Fecha límite
+authenticated.offer.list.label.moment= Momento
+authenticated.offer.list.label.title= Título
+authenticated.offer.list.label.minMoney= Dinero mínimo
+authenticated.offer.list.label.maxMoney= Dinero máximo

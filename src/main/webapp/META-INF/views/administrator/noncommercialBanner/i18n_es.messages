@@ -1,0 +1,11 @@
+administrator.noncommercialBanner.form.label.picture= Imagen:
+administrator.noncommercialBanner.form.label.slogan= Eslogan:
+administrator.noncommercialBanner.form.label.targetURL= Url destino:
+administrator.noncommercialBanner.form.label.jingle= Jingle:
+administrator.noncommercialBanner.form.button.return= Volver atrás
+
+administrator.noncommercialBanner.form.button.update= Actualizar
+administrator.noncommercialBanner.form.button.delete= Eliminar
+administrator.noncommercialBanner.form.button.create= Crear
+
+administrator.noncommercialBanner.list.label.picture= Imagen

@@ -1,0 +1,21 @@
+provider.request2.form.label.title= Nombre:
+provider.request2.form.label.ticker= Id:
+provider.request2.form.label.moment= Momento:
+provider.request2.form.label.deadline= Fecha límite:
+provider.request2.form.label.text= Texto:
+provider.request2.form.label.reward= Recompensa:
+provider.request2.form.label.confirm= Confirmar
+provider.request2.form.button.return= Volver
+provider.request2.form.button.create= Crear
+
+
+
+provider.request2.list.label.moment= Momento
+provider.request2.list.label.deadline= Fecha límite
+provider.request2.list.label.title= Título
+provider.request2.list.label.reward= Recompensa
+
+provider.request2.error.must-confirm = Debe confirmar
+provider.request2.error.incorrect-currency = Moneda incorrecta
+provider.request2.error.must-be-after = Debe ser una fecha futura
+provider.request2.error.unique-ticker = El id debe ser único

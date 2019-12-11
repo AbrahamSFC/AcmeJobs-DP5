@@ -1,0 +1,11 @@
+authenticated.investorRecords.form.label.name= Nombre:
+authenticated.investorRecords.form.label.sector= Sector:
+authenticated.investorRecords.form.label.investingStatements= Inversión:
+authenticated.investorRecords.form.label.ratings= Valoraciones:
+authenticated.investorRecords.form.button.return= Volver atrás
+
+
+
+
+authenticated.investorRecords.list.label.name= Nombre
+authenticated.investorRecords.list.label.investingStatements= Inversión

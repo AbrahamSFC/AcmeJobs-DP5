@@ -1,0 +1,12 @@
+worker.applications.form.label.reference= Número de referencia:
+worker.applications.form.label.moment= Momento:
+worker.applications.form.label.status= Estatus:
+worker.applications.form.label.statement= Declaración:
+worker.applications.form.label.skills= Habilidades :
+worker.applications.form.label.qualification= Cualificación:
+
+worker.applications.form.button.return= Volver
+
+worker.applications.list.label.reference= Número de referencia
+worker.applications.list.label.moment= Momento
+worker.applications.list.label.status= Estatus
