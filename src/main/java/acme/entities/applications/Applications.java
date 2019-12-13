@@ -33,9 +33,9 @@ public class Applications extends DomainEntity {
 	 */
 	private static final long	serialVersionUID	= 1L;
 
-	@Column(unique = true)
-	@NotBlank
 	//@Pattern(regexp = "^[a-zA-Z]{4}-[a-zA-Z]{4}:[a-zA-Z]{4}")
+	@NotBlank
+	@Column(unique = true)
 	@Length(min = 5, max = 15)
 	private String				reference;
 
@@ -44,7 +44,6 @@ public class Applications extends DomainEntity {
 	private Date				moment;
 
 	@Enumerated(value = EnumType.STRING)
-	@NotNull
 	private Status				status;
 
 	@NotBlank
