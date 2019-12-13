@@ -1,9 +1,13 @@
 worker.applications.form.label.reference= Número de referencia:
 worker.applications.form.label.moment= Momento:
 worker.applications.form.label.status= Estatus:
+worker.applications.form.label.status.rejected= Rechazado
+worker.applications.form.label.status.accepted= Aceptado
+worker.applications.form.label.status.pending= En espera
 worker.applications.form.label.statement= Declaración:
 worker.applications.form.label.skills= Habilidades :
 worker.applications.form.label.qualification= Cualificación:
+worker.applications.form.label.rejectReason = Razón del rechazo:
 
 worker.applications.form.button.return= Volver
 
