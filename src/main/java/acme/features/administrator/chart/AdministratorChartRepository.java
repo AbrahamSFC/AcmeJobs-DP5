@@ -32,4 +32,5 @@ public interface AdministratorChartRepository extends AbstractRepository {
 
 	@Query("select 1.0 * count(a)/(select count(b) from Applications b) from Applications a where a.status=acme.entities.applications.Status.REJECTED")
 	Double getRatioRejectedApplications4weeks();
+
 }

@@ -59,5 +59,4 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 
 		return result;
 	}
-
 }

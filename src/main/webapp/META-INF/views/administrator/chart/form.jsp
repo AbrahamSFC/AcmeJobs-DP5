@@ -118,6 +118,7 @@
 	});
 </script>
 
+
 <h2 align="center">
 	<acme:message code="administrator.chart.form.title.ratioApplication4weeks"/>
 </h2>
