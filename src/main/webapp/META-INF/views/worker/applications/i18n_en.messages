@@ -6,6 +6,7 @@ worker.applications.form.label.skills= Skills :
 worker.applications.form.label.qualification= Qualification:
 
 worker.applications.form.button.return= Return
+worker.applications.form.button.create= Apply
 
 worker.applications.list.label.reference= Reference number
 worker.applications.list.label.moment= Moment

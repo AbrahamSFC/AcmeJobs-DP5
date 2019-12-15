@@ -120,6 +120,7 @@ master.menu.auditor.nonMineJobs-list = Listar trabajos sin mi registro de audito
 # master.menu.worker ##########################################################
 
 master.menu.worker= Trabajador
+master.menu.employer.job-list= Listar todos los trabajos
 master.menu.worker.applications-list= Listar todas mis solicitudes
 
 

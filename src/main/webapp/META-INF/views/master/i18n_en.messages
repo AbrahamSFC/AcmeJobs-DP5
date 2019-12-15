@@ -113,10 +113,11 @@ master.menu.sponsor.commercial-non-banner-list = List my non commercial banners
 master.menu.auditor = Auditor
 master.menu.auditor.mineJobs-list = List jobs with my auditor record
 master.menu.auditor.nonMineJobs-list = List jobs without my auditor record
-# master.menu.worker ##########################################################
 
+# master.menu.worker ##########################################################
 master.menu.worker= Worker
-master.menu.worker.applications-list= List all the applications made to my jobs
+master.menu.worker.job-list = List all jobs
+master.menu.worker.applications-list= List all my applications
 
 # master.menu.user-account ####################################################
 

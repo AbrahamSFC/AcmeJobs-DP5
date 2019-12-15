@@ -18,6 +18,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.applications.Applications;
+import acme.entities.jobs.Job;
+import acme.entities.roles.Worker;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -31,4 +33,13 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select a from Applications a where a.job.employer.id=?1")
 	Collection<Applications> findManyByEmployerId(int employerId);
+
+	@Query("select a from Job a where a.id=?1")
+	Job findJobById(int id);
+
+	@Query("select a from Applications a where a.reference=?1")
+	Applications findJobByReference(String reference);
+
+	@Query("select a from Worker a where a.id=?1")
+	Worker findWorkerById(int id);
 }
