@@ -20,4 +20,8 @@ public class Chart implements Serializable {
 
 	Double						ratioDraftJob;
 	Double						ratioPublishedJob;
+
+	Double						ratioPendingApplication4weeks;
+	Double						ratioAcceptedApplication4weeks;
+	Double						ratioRejectedApplication4weeks;
 }

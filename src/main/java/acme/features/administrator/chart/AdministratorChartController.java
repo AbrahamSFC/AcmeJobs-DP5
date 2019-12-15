@@ -27,8 +27,6 @@ public class AdministratorChartController extends AbstractController<Administrat
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-
-		//		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 
 }

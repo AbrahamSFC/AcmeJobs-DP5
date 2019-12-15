@@ -2,4 +2,4 @@
 
 administrator.chart.form.title.ratioJob= Radio de trabajos según su estado:
 administrator.chart.form.title.ratioApplication =	Radio de solicitudes según su estado:
-
+administrator.chart.form.title.ratioApplication4weeks = Radio de solicitudes de las 4 últimas semanas:
