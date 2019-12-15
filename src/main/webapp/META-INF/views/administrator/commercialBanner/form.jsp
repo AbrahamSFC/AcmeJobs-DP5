@@ -9,7 +9,7 @@
 	<acme:form-url code="administrator.commercialBanner.form.label.picture" path="picture"/> 
 	<acme:form-textbox code="administrator.commercialBanner.form.label.slogan" path="slogan"/>
 	<acme:form-url code="administrator.commercialBanner.form.label.targetURL" path="targetURL"/>
-	<acme:form-textbox code="administrator.commercialBanner.form.label.creditCard" path="creditCard"/>
+	<acme:form-money code="administrator.commercialBanner.form.label.creditCard" path="creditCard"/>
 	<acme:form-submit test="${command=='show' }" code="administrator.commercialBanner.form.button.update"
 		action="/administrator/commercial-banner/update"/>
 	<acme:form-submit test="${command=='show' }" code="administrator.commercialBanner.form.button.delete"

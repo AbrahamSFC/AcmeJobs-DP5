@@ -4,6 +4,9 @@ sponsor.commercialBanner.form.label.targetURL = URL destino:
 sponsor.commercialBanner.form.label.creditCard = Tarjeta de crédito:
 sponsor.commercialBanner.form.button.return = Volver
 
+sponsor.commercialBanner.form.button.update= Actualizar
+sponsor.commercialBanner.form.button.delete= Eliminar
+sponsor.commercialBanner.form.button.create= Crear
 
 sponsor.commercialBanner.list.label.picture = Imagen:
 sponsor.commercialBanner.slogan = Eslogan:
