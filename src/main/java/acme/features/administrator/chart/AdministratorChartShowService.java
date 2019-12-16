@@ -18,7 +18,7 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 	@Autowired
 	private AdministratorChartRepository repository;
 
-	// AbstractCreateService<Administrator, Consumer> ---------------------------
+	// AbstractCreateService<Administrator, Chart> ---------------------------
 
 
 	@Override
@@ -36,6 +36,7 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 
 		request.unbind(entity, model, "ratioPendingApplication", "ratioAcceptedApplication", "ratioRejectedApplication");
 		request.unbind(entity, model, "ratioDraftJob", "ratioPublishedJob");
+		request.unbind(entity, model, "ratioPendingApplication4weeks", "ratioAcceptedApplication4weeks", "ratioRejectedApplication4weeks");
 
 	}
 
@@ -52,7 +53,10 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		result.setRatioDraftJob(this.repository.getRatioDraftJob());
 		result.setRatioPublishedJob(this.repository.getRatioPublishedJob());
 
+		result.setRatioAcceptedApplication(this.repository.getRatioAcceptedApplications4weeks());
+		result.setRatioPendingApplication(this.repository.getRatioPendingApplications4weeks());
+		result.setRatioRejectedApplication(this.repository.getRatioRejectedApplications4weeks());
+
 		return result;
 	}
-
 }
