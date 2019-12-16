@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
+import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Employer;
 import acme.entities.spam.Spam;
 import acme.framework.components.Errors;
@@ -36,7 +37,7 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "finalMode", "employer");
 
 	}
 
@@ -46,12 +47,13 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description");
+		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description", "descriptor.duties");
 
 	}
 
 	@Override
 	public Job instantiate(final Request<Job> request) {
+		assert request != null;
 		Job res;
 		res = new Job();
 		Principal principal;
@@ -62,6 +64,8 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		userAccountId = principal.getActiveRoleId();
 		employer = this.repository.findOneEmployerByUserAccount(userAccountId);
 		res.setEmployer(employer);
+		res.setStatus(JobStatus.DRAFT);
+		res.setFinalMode(false);
 		return res;
 	}
 
@@ -81,6 +85,8 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 
 	@Override
 	public void create(final Request<Job> request, final Job entity) {
+		assert request != null;
+		assert entity != null;
 		this.repository.save(entity);
 
 	}

@@ -1,15 +1,12 @@
 
 package acme.features.employer.job;
 
-import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.jobs.Descriptor;
-import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.entities.spam.Spam;
@@ -73,20 +70,16 @@ public class EmployerUpdateService implements AbstractUpdateService<Employer, Jo
 		String title = (String) request.getModel().getAttribute("title");
 		Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
 		errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.job.titleSpam");
-
-		if (request.getModel().getAttribute("status").equals("PUBLISHED")) {
-
-			Descriptor descriptor = this.repository.findAllDescriptorById(entity.getId());
-			Collection<Duty> duties = this.repository.findAllDescriptorById(descriptor.getId()).getDuties();
-			Double dutiesPercentage = duties.stream().mapToDouble(x -> x.getPercentage()).sum();
-			errors.state(request, dutiesPercentage == 100, "status", "employer.job.dutiesNot100");
-
-		}
-		Boolean status = false;
-		if (request.getModel().getAttribute("status").equals("PUBLISHED")) {
-			status = true;
-
-		}
+		//
+		//		if (request.getModel().getAttribute("status").equals("PUBLISHED")) {
+		//
+		//			String descriptor = (String) request.getModel().getAttribute("descriptor.description");
+		//			Collection<Duty> duties = (Collection<Duty>) request.getModel().getAttribute("descriptor.duties");
+		//			Double dutiesPercentage = duties.stream().mapToDouble(x -> x.getPercentage()).sum();
+		//			errors.state(request, dutiesPercentage == 100, "status", "employer.job.dutiesNot100");
+		//
+		//		}
+		Boolean status = request.getModel().getAttribute("status").equals("PUBLISHED") || request.getModel().getAttribute("status").equals("DRAFT");
 		errors.state(request, status, "status", "employer.job.statusIncorrect");
 
 	}
