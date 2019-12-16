@@ -412,7 +412,7 @@ public abstract class AbstractController<R extends UserRole, E> {
 			break;
 		case DELETE:
 			// HINT: dealing with a DELETE request involves validating that the entity can be deleted
-			// HINT+ and then invoking the service to delete the entity.
+			// HINT+ and then invoking the service to delete the entitya.
 			service.validate(request, entity, errors);
 			if (!errors.hasErrors()) {
 				service.delete(request, entity);
