@@ -1,0 +1,88 @@
+
+package acme.features.employer.job;
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import acme.entities.jobs.Job;
+import acme.entities.roles.Employer;
+import acme.entities.spam.Spam;
+import acme.framework.components.Errors;
+import acme.framework.components.Model;
+import acme.framework.components.Request;
+import acme.framework.entities.Principal;
+import acme.framework.services.AbstractCreateService;
+
+@Service
+public class EmployerCreateService implements AbstractCreateService<Employer, Job> {
+
+	@Autowired
+	EmployerJobRepository repository;
+
+
+	@Override
+	public boolean authorise(final Request<Job> request) {
+		assert request != null;
+
+		return true;
+	}
+
+	@Override
+	public void bind(final Request<Job> request, final Job entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
+
+	}
+
+	@Override
+	public void unbind(final Request<Job> request, final Job entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description");
+
+	}
+
+	@Override
+	public Job instantiate(final Request<Job> request) {
+		Job res;
+		res = new Job();
+		Principal principal;
+		Employer employer;
+		int userAccountId;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getActiveRoleId();
+		employer = this.repository.findOneEmployerByUserAccount(userAccountId);
+		res.setEmployer(employer);
+		return res;
+	}
+
+	@Override
+	public void validate(final Request<Job> request, final Job entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+		Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+
+		String title = (String) request.getModel().getAttribute("title");
+		Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
+		errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.job.titleSpam");
+	}
+
+	@Override
+	public void create(final Request<Job> request, final Job entity) {
+		this.repository.save(entity);
+
+	}
+
+}
