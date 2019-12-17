@@ -30,10 +30,9 @@ public interface EmployerDutyRepository extends AbstractRepository {
 	@Query("select a from Descriptor a where a.id =?1 ")
 	Descriptor findDescriptorById(int descriptorId);
 
+	@Query("select a from Duty a where a.id =?1 ")
+	Collection<Duty> findAllDutiesByDescriptor(int dutyId);
 	/*
-	 * @Query("select a from Duty a where a.id =?1 ")
-	 * Collection<Duty> findAllDutiesByDescriptor(int dutyId);
-	 *
 	 * @Query("select a from Applications a where a.Duty.id=?1")
 	 * Collection<Applications> findApplicationsByDutyId(int DutyId);
 	 */
