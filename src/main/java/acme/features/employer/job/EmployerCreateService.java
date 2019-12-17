@@ -1,12 +1,16 @@
 
 package acme.features.employer.job;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.jobs.Descriptor;
+import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Employer;
@@ -37,7 +41,7 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "finalMode", "employer");
+		request.bind(entity, errors);
 
 	}
 
@@ -47,8 +51,9 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description", "descriptor.duties");
-		model.setAttribute("id", entity.getDescriptor());
+		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description");
+		model.setAttribute("descriptor", entity.getDescriptor());
+
 	}
 
 	@Override
@@ -56,6 +61,9 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		assert request != null;
 		Job res;
 		res = new Job();
+		Descriptor descriptor = new Descriptor();
+		Collection<Duty> duties = new ArrayList<>();
+		descriptor.setDuties(duties);
 		Principal principal;
 		Employer employer;
 		int userAccountId;
@@ -64,6 +72,7 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		userAccountId = principal.getActiveRoleId();
 		employer = this.repository.findOneEmployerByUserAccount(userAccountId);
 		res.setEmployer(employer);
+		res.setDescriptor(descriptor);
 		res.setStatus(JobStatus.DRAFT);
 		res.setFinalMode(false);
 		return res;
@@ -87,6 +96,10 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 	public void create(final Request<Job> request, final Job entity) {
 		assert request != null;
 		assert entity != null;
+		for (Duty a : entity.getDescriptor().getDuties()) {
+			this.repository.save(a);
+		}
+		this.repository.save(entity.getDescriptor());
 		this.repository.save(entity);
 
 	}

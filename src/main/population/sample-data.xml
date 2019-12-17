@@ -418,7 +418,7 @@
 		<property name = "moreInfo" value = "http://www.example.com" />
 		<property name ="finalMode" value ="true" />
 		<property name ="employer" ref ="employer2Employer"/>
-		<property name = "descriptor" ref ="descriptorJob5"/>
+		<property name = "descriptor" ref ="descriptorJob80"/>
 		<property name = "status" value ="PUBLISHED"/>
 	
 	</bean>
