@@ -3,7 +3,6 @@ package acme.entities.auditRecords;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,6 +13,9 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
@@ -48,9 +50,9 @@ public class AuditRecord extends DomainEntity {
 	@ManyToOne(optional = false)
 	private Auditor				auditor;
 
-	@NotNull
 	@Valid
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(optional = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Job					job;
 
 }

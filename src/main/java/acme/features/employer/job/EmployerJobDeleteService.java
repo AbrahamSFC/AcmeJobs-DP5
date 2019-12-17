@@ -74,11 +74,28 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert request != null;
 		assert entity != null;
 		int id = entity.getDescriptor().getId();
-		entity.getDescriptor().getDuties().clear();
 
-		//this.repository.deleteDescriptorById(id);
+		/*
+		 * Collection<AuditRecord> auditRecord = this.repository.findAuditRecordByJobId(entity.getId());
+		 * System.out.println(auditRecord);
+		 * 
+		 * int dutyId;
+		 * for (Duty a : entity.getDescriptor().getDuties()) {
+		 * dutyId = a.getId();
+		 * this.repository.deleteDutiesById(dutyId);
+		 * }
+		 */
 
 		this.repository.delete(entity);
+
+		//entity.getDescriptor().getDuties().clear();
+		//this.repository.deleteAll(entity.getDescriptor().getDuties());
+
+		//this.repository.delete(entity.getDescriptor());
+
+		//Collection<Applications> application = this.repository.findApplicationsByJobId(entity.getId());
+		//this.repository.deleteAll(application);
+
 	}
 
 }
