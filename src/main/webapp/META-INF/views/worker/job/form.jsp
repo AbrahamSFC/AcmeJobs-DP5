@@ -33,6 +33,6 @@
 </acme:form>
 
 <acme:form>
-	<acme:form-submit code="worker.applications.form.button.create" method="get" 
+	<acme:form-submit code="worker.job.form.button.create" method="get" 
 	action="/worker/applications/create?id=${id}" />
 </acme:form>
