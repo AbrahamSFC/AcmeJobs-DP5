@@ -1,6 +1,9 @@
 
 package acme.features.employer.job;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -65,6 +68,21 @@ public class EmployerUpdateService implements AbstractUpdateService<Employer, Jo
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		if (!errors.hasErrors("deadline")) {
+			Date deadline = entity.getDeadline();
+			Calendar calendar = new GregorianCalendar();
+			calendar.add(Calendar.DAY_OF_MONTH, 0);
+			Date minDeadline = calendar.getTime();
+			Boolean restriccion = deadline.after(minDeadline);
+			errors.state(request, restriccion, "deadline", "employer.job.error.must-be-after");
+		}
+
+		if (!errors.hasErrors("salary")) {
+			Boolean okSalary = entity.getSalary().getCurrency().equals("EUR");
+			errors.state(request, okSalary, "salary", "employer.job.error.incorrect-currency");
+		}
+
 		Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
 		Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
 
