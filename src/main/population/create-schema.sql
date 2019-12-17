@@ -26,6 +26,7 @@
     create table `applications` (
        `id` integer not null,
         `version` integer not null,
+        `final_mode` bit not null,
         `moment` datetime(6),
         `qualifications` varchar(255),
         `reference` varchar(255),
