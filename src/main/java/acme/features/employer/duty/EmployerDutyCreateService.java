@@ -1,12 +1,14 @@
 
 package acme.features.employer.duty;
 
+import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.roles.Employer;
 import acme.entities.spam.Spam;
@@ -54,6 +56,7 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert request != null;
 
 		return new Duty();
+
 	}
 
 	@Override
@@ -65,18 +68,26 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
 		Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
 
-		/*
-		 * String title = (String) request.getModel().getAttribute("title");
-		 * Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
-		 * errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.Duty.titleSpam");
-		 */
+		String title = (String) request.getModel().getAttribute("title");
+		Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
+		errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.Duty.titleSpam");
+
 	}
 
 	@Override
 	public void create(final Request<Duty> request, final Duty entity) {
 		assert request != null;
 		assert entity != null;
+
 		this.repository.save(entity);
+		Descriptor a = this.repository.findDescriptorById(request.getModel().getInteger("descriptor_id2"));
+		Collection<Duty> duties = a.getDuties();
+
+		duties.add(entity);
+
+		a.setDuties(duties);
+
+		this.repository.save(a);
 
 	}
 

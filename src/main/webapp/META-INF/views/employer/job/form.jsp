@@ -2,6 +2,10 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+	<%
+	String idDesc = String.format("%d", request.getAttribute("descriptorId"));
+	request.setAttribute("idDesc", idDesc);
+	%>
 
 <acme:form readonly="false">
 	
@@ -14,15 +18,10 @@
 	<acme:form-textarea code="employer.job.form.label.description" path="description"/>
 		<acme:form-textbox code ="authenticated.job.form.label.descriptor.description" path ="descriptor.description"/>
 
- <jstl:forEach var="duty" items="${duties}">
-   <acme:form-textbox code="employer.job.form.label.descriptor.duties.title" path ="duty.title"/><br/>
-   <acme:form-textbox code="employer.job.form.label.descriptor.duties.description" path ="duty.description"/><br/>
-   <acme:form-textbox code="employer.job.form.label.descriptor.duties.percentage" path ="duty.percentage"/><br/>
-  </jstl:forEach>
-  <jstl:if test="${not empty descriptor}">
-  <acme:form-submit method="get" code="employer.job.form.button.duty" action="/employer/duty/list?descriptor_id=${descriptorId }"/>
+
+  <acme:form-submit method="get" code="employer.job.form.button.duty" action="/employer/duty/list?descriptor_id=${idDesc}"/>
 		
-	</jstl:if>
+	<acme:form-submit method ="get" code="administrator.duty.list.button.create" action="/employer/duty/create?descriptor_id=${idDesc}"/>
 
     <acme:form-return code="employer.job.form.button.return" />
     <acme:form-submit test="${command == 'show'}" code="employer.job.form.button.update" action="/employer/job/update" />

@@ -52,7 +52,7 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 		int id;
 
 		id = request.getModel().getInteger("id");
-		res = this.repository.findOneDutyById(id);
+		res = this.repository.findOneById(id);
 		return res;
 	}
 

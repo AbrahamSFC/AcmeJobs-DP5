@@ -10,7 +10,6 @@ import acme.entities.jobs.Duty;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -38,13 +37,11 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 	@Override
 	public Collection<Duty> findMany(final Request<Duty> request) {
 		assert request != null;
-
-		Collection<Duty> result = null;
-		Principal principal;
-
-		principal = request.getPrincipal();
-
-		//result = this.repository.findManyByEmployerId(principal.getActiveRoleId());
+		Collection<Duty> result;
+		String id = request.getServletRequest().getParameter("descriptor_id");
+		System.out.println(id);
+		Integer id2 = Integer.valueOf(id);
+		result = this.repository.findAllDutiesByDescriptor(id2);
 
 		return result;
 	}

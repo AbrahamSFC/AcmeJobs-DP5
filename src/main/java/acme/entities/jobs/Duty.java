@@ -24,5 +24,4 @@ public class Duty extends DomainEntity {
 
 	@NotNull
 	private Double				percentage;
-
 }

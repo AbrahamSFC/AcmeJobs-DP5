@@ -13,6 +13,4 @@
 
 </acme:list>
 
-	<acme:form>
-	<acme:form-return code="administrator.duty.list.button.create" action="/employer/duty/create"/>
-</acme:form>
+	

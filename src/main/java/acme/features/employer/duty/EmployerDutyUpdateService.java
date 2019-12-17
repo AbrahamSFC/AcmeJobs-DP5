@@ -55,7 +55,7 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		int id;
 
 		id = request.getModel().getInteger("id");
-		res = this.repository.findOneDutyById(id);
+		res = this.repository.findOneById(id);
 		return res;
 	}
 
@@ -79,8 +79,6 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		//			errors.state(request, dutiesPercentage == 100, "status", "employer.Duty.dutiesNot100");
 		//
 		//		}
-		Boolean status = request.getModel().getAttribute("status").equals("PUBLISHED") || request.getModel().getAttribute("status").equals("DRAFT");
-		errors.state(request, status, "status", "employer.Duty.statusIncorrect");
 
 	}
 

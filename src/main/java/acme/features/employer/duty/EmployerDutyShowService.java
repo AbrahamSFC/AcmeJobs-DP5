@@ -42,7 +42,7 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneDutyById(id);
+		result = this.repository.findOneById(id);
 
 		return result;
 	}

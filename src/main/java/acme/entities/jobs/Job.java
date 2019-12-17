@@ -3,6 +3,7 @@ package acme.entities.jobs;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -66,7 +67,7 @@ public class Job extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@OneToOne(optional = false)
+	@OneToOne(optional = false, cascade = CascadeType.ALL)
 	private Descriptor			descriptor;
 
 }
