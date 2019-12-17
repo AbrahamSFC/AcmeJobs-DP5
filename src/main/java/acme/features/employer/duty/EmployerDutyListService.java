@@ -39,12 +39,12 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 	public Collection<Duty> findMany(final Request<Duty> request) {
 		assert request != null;
 
-		Collection<Duty> result;
+		Collection<Duty> result = null;
 		Principal principal;
 
 		principal = request.getPrincipal();
 
-		result = this.repository.findManyByEmployerId(principal.getActiveRoleId());
+		//result = this.repository.findManyByEmployerId(principal.getActiveRoleId());
 
 		return result;
 	}

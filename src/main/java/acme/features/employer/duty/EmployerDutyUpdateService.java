@@ -16,7 +16,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class EmployerUpdateService implements AbstractUpdateService<Employer, Duty> {
+public class EmployerDutyUpdateService implements AbstractUpdateService<Employer, Duty> {
 
 	@Autowired
 	EmployerDutyRepository repository;

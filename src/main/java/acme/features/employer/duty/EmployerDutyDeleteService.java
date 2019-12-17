@@ -12,7 +12,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class EmployerDeleteService implements AbstractDeleteService<Employer, Duty> {
+public class EmployerDutyDeleteService implements AbstractDeleteService<Employer, Duty> {
 
 	@Autowired
 	EmployerDutyRepository repository;

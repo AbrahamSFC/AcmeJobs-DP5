@@ -16,7 +16,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class EmployerCreateService implements AbstractCreateService<Employer, Duty> {
+public class EmployerDutyCreateService implements AbstractCreateService<Employer, Duty> {
 
 	@Autowired
 	EmployerDutyRepository repository;
@@ -65,9 +65,11 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Du
 		Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
 		Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
 
-		String title = (String) request.getModel().getAttribute("title");
-		Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
-		errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.Duty.titleSpam");
+		/*
+		 * String title = (String) request.getModel().getAttribute("title");
+		 * Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
+		 * errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.Duty.titleSpam");
+		 */
 	}
 
 	@Override
