@@ -7,7 +7,7 @@ worker.job.form.label.status = Status
 
 worker.job.form.label.description = Description
 worker.job.form.button.return = Return
-
+worker.job.form.button.create = Apply
 
 worker.job.form.panel.descriptor.duties = Duties panel
 
