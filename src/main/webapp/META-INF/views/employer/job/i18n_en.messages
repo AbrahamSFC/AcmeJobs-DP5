@@ -4,13 +4,19 @@ employer.job.form.label.deadline = Deadline
 employer.job.form.label.salary = Salary
 employer.job.form.label.moreInfo = More info
 employer.job.form.label.status = Status
-
 employer.job.form.label.description = Description
-employer.offer.form.button.return = Return
 
+employer.offer.form.button.return = Return
+employer.job.form.button.create = Create
+employer.job.form.button.update = Update
+employer.job.form.button.delete = Delete
+employer.job.form.button.duty = Duties
 
 employer.job.form.panel.descriptor.duties = Duties panel
 
 employer.job.list.label.reference = Reference
 employer.job.list.label.deadline = Deadline
 employer.job.list.label.title = Title
+
+employer.job.error.must-be-after = Must be in the future
+employer.job.error.incorrect-currency = Incorrect currency
