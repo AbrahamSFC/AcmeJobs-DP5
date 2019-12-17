@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.applications.Applications;
 import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
@@ -67,8 +66,10 @@ public class EmployerDeleteService implements AbstractDeleteService<Employer, Jo
 		assert entity != null;
 		assert errors != null;
 
-		Collection<Applications> a = this.repository.findApplicationsByJobId(entity.getId());
-		errors.state(request, a.size() == 0, "title", "employer.job.existsApplicationsForIt");
+		/*
+		 * Collection<Applications> a = this.repository.findApplicationsByJobId(entity.getId());
+		 * errors.state(request, a.size() == 0, "title", "employer.job.existsApplicationsForIt");
+		 */
 
 	}
 
@@ -76,14 +77,17 @@ public class EmployerDeleteService implements AbstractDeleteService<Employer, Jo
 	public void delete(final Request<Job> request, final Job entity) {
 		assert request != null;
 		assert entity != null;
-		Descriptor descriptor = this.repository.findDescriptorById(entity.getId());
+		int id = entity.getDescriptor().getId();
+		Descriptor descriptor = this.repository.findDescriptorById(id);
 
-		this.repository.delete(entity);
-		Collection<Duty> duties = this.repository.findAllDutiesByDescriptor(descriptor.getId());
+		Collection<Duty> duties = descriptor.getDuties();
+
 		duties.stream().forEach(x -> this.repository.delete(x));
-
 		this.repository.delete(descriptor);
 
+		//entity.setEmployer(null);
+
+		this.repository.delete(entity);
 	}
 
 }

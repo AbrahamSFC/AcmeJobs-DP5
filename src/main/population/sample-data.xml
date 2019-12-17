@@ -409,6 +409,31 @@
 		<property name ="percentage" value = "25" />
 	</bean>
 	
+	<bean name ="job5" class="acme.entities.jobs.Job">
+		<property name ="reference" value ="EMP2-JOB5"/>
+		<property name ="title" value ="Title 5" />
+		<property name ="deadline" value = "2030/12/11 23:59"/>
+		<property name ="salary" value = "€ 45,000.98"/>
+		<property name ="description" value ="Lorem ipsum sit dolor amet."/>
+		<property name = "moreInfo" value = "http://www.example.com" />
+		<property name ="finalMode" value ="true" />
+		<property name ="employer" ref ="employer2Employer"/>
+		<property name = "descriptor" ref ="descriptorJob5"/>
+		<property name = "status" value ="PUBLISHED"/>
+	
+	</bean>
+	
+	<bean name ="descriptorJob80" class ="acme.entities.jobs.Descriptor">
+		<property name ="description" value ="Description80" />
+		<property name ="duties" ref ="DutyDescriptorJob80" />
+	</bean>
+	
+	<bean name ="DutyDescriptorJob80" class ="acme.entities.jobs.Duty">
+		<property name ="title" value ="Duty5" />
+		<property name ="description" value ="Description duty 80" />
+		<property name ="percentage" value = "25" />
+	</bean>
+	
 	<!-- Workers  -->
 	
 	<bean name ="worker1UserAccount" class ="acme.framework.entities.UserAccount">
