@@ -1,16 +1,14 @@
-employer.job.form.label.reference = Reference
-employer.job.form.label.title = Title
-employer.job.form.label.deadline = Deadline
-employer.job.form.label.salary = Salary
-employer.job.form.label.moreInfo = More info
-employer.job.form.label.status = Status
+employer.duty.form.label.title = Title:
+employer.duty.form.label.description = Description:
+employer.duty.form.label.percentage = Percentage:
+employer.duty.form.button.return = Return
 
-employer.job.form.label.description = Description
-employer.offer.form.button.return = Return
+employer.duty.list.label.title= Title
+employer.duty.list.label.description= Description
+employer.duty.list.label.percentage= Percentage
 
+administrator.duty.list.button.create= Create
 
-employer.job.form.panel.descriptor.duties = Duties panel
-
-employer.job.list.label.reference = Reference
-employer.job.list.label.deadline = Deadline
-employer.job.list.label.title = Title
+employer.duty.form.button.update = Update
+employer.duty.form.button.create = Create
+employer.duty.form.button.delete = Delete
