@@ -1,9 +1,12 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.Applications;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -62,10 +65,8 @@ public class EmployerDeleteService implements AbstractDeleteService<Employer, Jo
 		assert entity != null;
 		assert errors != null;
 
-		/*
-		 * Collection<Applications> a = this.repository.findApplicationsByJobId(entity.getId());
-		 * errors.state(request, a.size() == 0, "title", "employer.job.existsApplicationsForIt");
-		 */
+		Collection<Applications> a = this.repository.findApplicationsByJobId(entity.getId());
+		errors.state(request, a.size() == 0, "title", "employer.job.existsApplicationsForIt");
 
 	}
 

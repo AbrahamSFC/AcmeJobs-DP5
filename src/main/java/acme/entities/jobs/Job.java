@@ -67,7 +67,7 @@ public class Job extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@OneToOne(optional = false, cascade = CascadeType.ALL)
+	@OneToOne(optional = false, cascade = CascadeType.REMOVE)
 	private Descriptor			descriptor;
 
 }

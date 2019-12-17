@@ -15,6 +15,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 
 import acme.entities.jobs.Job;
@@ -64,6 +66,7 @@ public class Applications extends DomainEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Job					job;
 
 }
