@@ -101,12 +101,27 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 			errors.state(request, okSalary, "salary", "employer.job.error.incorrect-currency");
 		}
 
-		Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
-		Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+		if (!errors.hasErrors("reference")) {
+			Job reference = this.repository.findOneByReference(entity.getReference());
+			errors.state(request, reference == null, "reference", "employer.job.error.unique-reference");
+		}
 
-		String title = (String) request.getModel().getAttribute("title");
-		Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
-		errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.job.titleSpam");
+		if (!errors.hasErrors("title")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("title");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.job.error.titleSpam");
+		}
+
+		if (!errors.hasErrors("description")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String description = (String) request.getModel().getAttribute("description");
+			Double spamWordsTitle = (double) spamWords.filter(x -> description.contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "description", "employer.job.error.titleSpam");
+		}
+
 	}
 
 	@Override

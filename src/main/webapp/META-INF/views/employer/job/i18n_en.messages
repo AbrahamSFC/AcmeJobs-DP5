@@ -20,5 +20,5 @@ employer.job.list.label.title = Title
 
 employer.job.error.must-be-after = Must be in the future
 employer.job.error.incorrect-currency = Incorrect currency
-
-employer.job.titleSpam = Can't contain spam word
+employer.job.error.unique-reference = This reference already exist
+employer.job.error.titleSpam = Can't contain spam word

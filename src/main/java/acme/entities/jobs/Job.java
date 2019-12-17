@@ -68,4 +68,5 @@ public class Job extends DomainEntity {
 	@Valid
 	@OneToOne(optional = false)
 	private Descriptor			descriptor;
+
 }
