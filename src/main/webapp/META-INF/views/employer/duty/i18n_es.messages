@@ -1,0 +1,14 @@
+employer.job.form.label.reference = Referencia
+employer.job.form.label.title = Título
+employer.job.form.label.deadline = Fecha de vencimiento
+employer.job.form.label.salary = Salario
+employer.job.form.label.moreInfo = Más info
+employer.job.form.label.status = Estado
+employer.job.form.label.description = Descripción
+employer.offer.form.button.return = Volver
+
+employer.job.form.panel.descriptor.duties = Panel de servicios
+
+employer.job.list.label.reference = Referencia
+employer.job.list.label.deadline = Fecha de Vencimiento
+employer.job.list.label.title = Título
