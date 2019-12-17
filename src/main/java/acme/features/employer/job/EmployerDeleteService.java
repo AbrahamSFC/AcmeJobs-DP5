@@ -78,10 +78,12 @@ public class EmployerDeleteService implements AbstractDeleteService<Employer, Jo
 		//
 		//		Collection<Duty> duties = descriptor.getDuties();
 		//
-		//		duties.stream().forEach(x -> this.repository.delete(x));
+		//		for (Duty a : duties) {
+		//			this.repository.delete(a);
+		//		}
 		//		this.repository.delete(descriptor);
-		//		//
-		//		//entity.setEmployer(null);
+
+		//		entity.setEmployer(null);
 
 		this.repository.delete(entity);
 	}
