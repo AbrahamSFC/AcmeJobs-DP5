@@ -3,6 +3,7 @@ package acme.entities.applications;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -63,7 +64,7 @@ public class Applications extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
 	private Job					job;
 
 }

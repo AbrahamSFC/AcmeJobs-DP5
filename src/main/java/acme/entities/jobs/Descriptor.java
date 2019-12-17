@@ -3,6 +3,7 @@ package acme.entities.jobs;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -26,6 +27,6 @@ public class Descriptor extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private Collection<Duty>	duties;
 }

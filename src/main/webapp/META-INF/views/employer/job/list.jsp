@@ -13,8 +13,6 @@
 
 </acme:list>
 
-	<acme:form>
-	<acme:form-return
-		code="administrator.records.list.button.create"
-	 	action="/employer/job/create"/>
+<acme:form>
+	<acme:form-return code="administrator.records.list.button.create" action="/employer/job/create"/>
 </acme:form>

@@ -1,13 +1,9 @@
 
 package acme.features.employer.job;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.jobs.Descriptor;
-import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -16,7 +12,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class EmployerDeleteService implements AbstractDeleteService<Employer, Job> {
+public class EmployerJobDeleteService implements AbstractDeleteService<Employer, Job> {
 
 	@Autowired
 	EmployerJobRepository repository;
@@ -78,14 +74,9 @@ public class EmployerDeleteService implements AbstractDeleteService<Employer, Jo
 		assert request != null;
 		assert entity != null;
 		int id = entity.getDescriptor().getId();
-		Descriptor descriptor = this.repository.findDescriptorById(id);
+		entity.getDescriptor().getDuties().clear();
 
-		Collection<Duty> duties = descriptor.getDuties();
-
-		duties.stream().forEach(x -> this.repository.delete(x));
-		this.repository.delete(descriptor);
-
-		//entity.setEmployer(null);
+		//this.repository.deleteDescriptorById(id);
 
 		this.repository.delete(entity);
 	}
