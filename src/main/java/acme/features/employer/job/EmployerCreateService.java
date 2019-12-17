@@ -48,7 +48,7 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description", "descriptor.duties");
-
+		model.setAttribute("id", entity.getDescriptor());
 	}
 
 	@Override
