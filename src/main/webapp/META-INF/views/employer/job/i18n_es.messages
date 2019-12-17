@@ -20,3 +20,5 @@ employer.job.list.label.title = Título
 
 employer.job.error.must-be-after = Debe ser una fecha futura
 employer.job.error.incorrect-currency = Moneda incorrecta
+
+employer.job.titleSpam = No puedo haber palabras del spam

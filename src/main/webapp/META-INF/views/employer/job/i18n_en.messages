@@ -6,7 +6,7 @@ employer.job.form.label.moreInfo = More info
 employer.job.form.label.status = Status
 employer.job.form.label.description = Description
 
-employer.offer.form.button.return = Return
+employer.job.form.button.return = Return
 employer.job.form.button.create = Create
 employer.job.form.button.update = Update
 employer.job.form.button.delete = Delete
@@ -20,3 +20,5 @@ employer.job.list.label.title = Title
 
 employer.job.error.must-be-after = Must be in the future
 employer.job.error.incorrect-currency = Incorrect currency
+
+employer.job.titleSpam = Can't contain spam word
