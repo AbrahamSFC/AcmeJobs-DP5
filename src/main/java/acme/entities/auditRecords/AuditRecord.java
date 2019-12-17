@@ -50,6 +50,7 @@ public class AuditRecord extends DomainEntity {
 	@ManyToOne(optional = false)
 	private Auditor				auditor;
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)

@@ -63,6 +63,7 @@ public class Applications extends DomainEntity {
 	@ManyToOne(optional = false)
 	private Worker				worker;
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
