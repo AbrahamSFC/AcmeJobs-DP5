@@ -18,11 +18,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.applications.Applications;
+import acme.entities.spam.Spam;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface EmployerApplicationRepository extends AbstractRepository {
 
+	@Query("select a from Applications a where a.id=?1")
+	Applications findOneApplicationById(int id);
+
 	@Query("select a from Applications a where a.job.employer.id=?1")
 	Collection<Applications> findManyByEmployerId(int employerId);
+
+	@Query("select a from Spam a ")
+	Collection<Spam> findAllSpam();
 }

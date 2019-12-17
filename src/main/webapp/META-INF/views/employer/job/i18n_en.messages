@@ -6,7 +6,7 @@ employer.job.form.label.moreInfo = More info
 employer.job.form.label.status = Status
 
 employer.job.form.label.description = Description
-employer.offer.form.button.return = Return
+employer.job.form.button.return = Return
 
 
 employer.job.form.panel.descriptor.duties = Duties panel

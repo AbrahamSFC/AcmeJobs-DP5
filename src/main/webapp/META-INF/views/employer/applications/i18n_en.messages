@@ -1,16 +1,19 @@
-worker.applications.form.label.reference= Reference number:
-worker.applications.form.label.moment= Moment:
-worker.applications.form.label.status= Status:
-worker.applications.form.label.status.rejected= Rejected
-worker.applications.form.label.status.accepted= Accepted
-worker.applications.form.label.status.pending= Pending
-worker.applications.form.label.statement= Statement:
-worker.applications.form.label.skills= Skills :
-worker.applications.form.label.qualification= Qualification:
-worker.applications.form.label.rejectReason: Reject reason:
+employer.applications.form.label.reference= Reference number:
+employer.applications.form.label.moment= Moment:
+employer.applications.form.label.status= Status:
+employer.applications.form.label.status.rejected= Rejected
+employer.applications.form.label.status.accepted= Accepted
+employer.applications.form.label.status.pending= Pending
+employer.applications.form.label.statement= Statement:
+employer.applications.form.label.skills= Skills :
+employer.applications.form.label.qualification= Qualification:
+employer.applications.form.label.rejectReason: Reject reason:
 
-worker.applications.form.button.return= Return
+employer.applications.form.button.return= Return
+employer.applications.form.button.update = Update
 
-worker.applications.list.label.reference= Reference number
-worker.applications.list.label.moment= Moment
-worker.applications.list.label.status= Status
+employer.applications.list.label.reference= Reference number
+employer.applications.list.label.moment= Moment
+employer.applications.list.label.status= Status
+
+employer.applications.invalid-rejected-reason = Reject reason can't be empty
