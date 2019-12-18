@@ -18,7 +18,7 @@ authenticated.auditor.form.accepted = Your request has been accepted
 authenticated.auditor.form.waiting = Your request is currently waiting to be accepted
 authenticated.auditor.form.need-approval = Before becoming Auditor you need the approval of an administrator
 
-authenticated.auditor.form.button.create-request = Request Auditor Rol
+authenticated.auditor.form.button.create-request = Request to become an Auditor 
 authenticated.auditor.form.button.create = Become Auditor
 authenticated.auditor.form.button.update = Update
 authenticated.auditor.form.button.return = Return
