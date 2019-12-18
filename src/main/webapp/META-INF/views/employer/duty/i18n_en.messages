@@ -1,0 +1,16 @@
+employer.duty.form.label.title = Title:
+employer.duty.form.label.description = Description:
+employer.duty.form.label.percentage = Percentage:
+employer.duty.form.button.return = Return
+
+employer.duty.list.label.title= Title
+employer.duty.list.label.description= Description
+employer.duty.list.label.percentage= Percentage
+
+administrator.duty.list.button.create= Create
+
+employer.duty.form.button.update = Update
+employer.duty.form.button.create = Create
+
+employer.duty.error.spam = Can't contain spam word
+employer.duty.error.workload = The duties must sum up to 100% the weekly workload

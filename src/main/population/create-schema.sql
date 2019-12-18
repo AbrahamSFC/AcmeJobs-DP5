@@ -402,7 +402,8 @@
     alter table `applications` 
        add constraint `FKj2gllxnbrvk83wdygiyxdul40` 
        foreign key (`job_id`) 
-       references `job` (`id`);
+       references `job` (`id`) 
+       on delete cascade;
 
     alter table `applications` 
        add constraint `FKfott6wy710nqog2etbl4atl2c` 
@@ -417,7 +418,8 @@
     alter table `audit_record` 
        add constraint `FKlbvbyimxf6pxvbhkdd4vfhlnd` 
        foreign key (`job_id`) 
-       references `job` (`id`);
+       references `job` (`id`) 
+       on delete cascade;
 
     alter table `auditor` 
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 

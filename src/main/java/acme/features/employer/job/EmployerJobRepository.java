@@ -6,7 +6,9 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.applications.Applications;
 import acme.entities.jobs.Descriptor;
+import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.entities.spam.Spam;
@@ -18,8 +20,13 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select a from Job a where a.id = ?1")
 	Job findOneJobById(int id);
 
+	@Query("select a from Job a")
+	Collection<Job> findAllJob();
 	@Query("select a from Job a where a.employer.id=?1")
 	Collection<Job> findManyByEmployerId(int employerId);
+
+	@Query("select a from Job a where a.reference = ?1")
+	Collection<Job> findOneByReference(String reference);
 
 	@Query("select a from Employer a where a.id=?1")
 	Employer findOneEmployerByUserAccount(int userId);
@@ -28,7 +35,12 @@ public interface EmployerJobRepository extends AbstractRepository {
 	Collection<Spam> findAllSpam();
 
 	@Query("select a from Descriptor a where a.id =?1 ")
-	Descriptor findAllDescriptorById(int descriptorId);
-	//
+	Descriptor findDescriptorById(int descriptorId);
+
+	@Query("select a from Descriptor b join b.duties a where b.id =?1")
+	Collection<Duty> findAllDutiesByDescriptor(int descriptorId);
+
+	@Query("select a from Applications a where a.job.id=?1")
+	Collection<Applications> findApplicationsByJobId(int jobId);
 
 }

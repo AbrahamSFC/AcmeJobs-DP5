@@ -1,0 +1,16 @@
+employer.duty.form.label.title = Título:
+employer.duty.form.label.description = Descripción:
+employer.duty.form.label.percentage = Porcentaje: 
+employer.duty.form.button.return = Volver
+
+employer.duty.list.label.title= Título
+employer.duty.list.label.description= Descripción
+employer.duty.list.label.percentage= Porcentaje
+
+administrator.duty.list.button.create= Crear
+
+employer.duty.form.button.update = Actualizar
+employer.duty.form.button.create = Crear
+
+employer.duty.error.spam = No puede haber palabras del spam
+employer.duty.error.notWorkload = Los deberes deben sumar el 100% de la carga de trabajo

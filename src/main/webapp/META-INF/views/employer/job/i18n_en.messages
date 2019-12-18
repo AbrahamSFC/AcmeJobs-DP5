@@ -4,13 +4,29 @@ employer.job.form.label.deadline = Deadline
 employer.job.form.label.salary = Salary
 employer.job.form.label.moreInfo = More info
 employer.job.form.label.status = Status
-
 employer.job.form.label.description = Description
-employer.job.form.button.return = Return
+employer.job.form.label.finalMode = Final mode
 
+employer.job.form.button.return = Return
+employer.job.form.button.create = Create
+employer.job.form.button.update = Update
+employer.job.form.button.delete = Delete
+employer.job.form.button.duty = Duties
+employer.job.form.button.duty.create = Create duties
 
 employer.job.form.panel.descriptor.duties = Duties panel
 
 employer.job.list.label.reference = Reference
 employer.job.list.label.deadline = Deadline
 employer.job.list.label.title = Title
+
+employer.job.error.must-be-after = Must be in the future
+employer.job.error.incorrect-currency = Incorrect currency
+employer.job.error.unique-reference = This reference already exist
+employer.job.error.spam = Can't contain spam word
+employer.job.error.statusIncorrect = The status must be DRAFT or PUBLISHED
+employer.job.error.positive-salary = The salary must be greater than zero
+employer.job.error.isPublished = The status must be PUBLISHED
+employer.job.error.hasDescriptor = The job must have a descriptor
+employer.job.error.notWorkload = The duties must sum up to 100% the weekly workload
+employer.job.existsApplicationsForIt = Can't delete a job that has applications

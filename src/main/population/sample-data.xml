@@ -295,10 +295,10 @@
 		<property name ="reference" value ="EMP1-JOB1"/>
 		<property name ="title" value ="Title 1" />
 		<property name ="deadline" value = "2030/12/11 23:59"/>
-		<property name ="salary" value = "€ 15,000.98"/>
+		<property name ="salary" value = "15,000.98 EUR"/>
 		<property name ="description" value ="Lorem ipsum sit dolor amet."/>
 		<property name ="moreInfo" value = "http://www.example.com" />
-		<property name ="finalMode" value ="true" />
+		<property name ="finalMode" value ="false" />
 		<property name ="employer" ref ="employer1Employer"/>
 		<property name = "descriptor" ref ="descriptorJob1"/>
 		<property name = "status" value ="DRAFT"/>
@@ -321,10 +321,10 @@
 		<property name ="reference" value ="EMP1-JOB2"/>
 		<property name ="title" value ="Title 2" />
 		<property name ="deadline" value = "2999/11/27 19:57"/>
-		<property name ="salary" value = "€ 25,000.98"/>
+		<property name ="salary" value = "25,000.98 EUR"/>
 		<property name ="description" value ="Lorem ipsum sit dolor amet."/>
 		<property name = "moreInfo" value = "http://www.example.com" />
-		<property name ="finalMode" value ="true" />
+		<property name ="finalMode" value ="false" />
 		<property name ="employer" ref ="employer1Employer"/>
 		<property name = "descriptor" ref ="descriptorJob2"/>
 		<property name = "status" value ="PUBLISHED"/>
@@ -347,10 +347,10 @@
 		<property name ="reference" value ="EMP2-JOB1"/>
 		<property name ="title" value ="Title 3" />
 		<property name ="deadline" value = "2030/12/11 23:59"/>
-		<property name ="salary" value = "€ 35,000.98"/>
+		<property name ="salary" value = "35,000.98 EUR"/>
 		<property name ="description" value ="Lorem ipsum sit dolor amet."/>
 		<property name = "moreInfo" value = "http://www.example.com" />
-		<property name ="finalMode" value ="true" />
+		<property name ="finalMode" value ="false" />
 		<property name ="employer" ref ="employer2Employer"/>
 		<property name = "descriptor" ref ="descriptorJob3"/>
 
@@ -388,10 +388,10 @@
 		<property name ="reference" value ="EMP2-JOB2"/>
 		<property name ="title" value ="Title 4" />
 		<property name ="deadline" value = "2030/12/11 23:59"/>
-		<property name ="salary" value = "€ 45,000.98"/>
+		<property name ="salary" value = "45,000.98 EUR"/>
 		<property name ="description" value ="Lorem ipsum sit dolor amet."/>
 		<property name = "moreInfo" value = "http://www.example.com" />
-		<property name ="finalMode" value ="true" />
+		<property name ="finalMode" value ="false" />
 		<property name ="employer" ref ="employer2Employer"/>
 		<property name = "descriptor" ref ="descriptorJob4"/>
 		<property name = "status" value ="PUBLISHED"/>
@@ -406,6 +406,31 @@
 	<bean name ="DutyDescriptorJob4" class ="acme.entities.jobs.Duty">
 		<property name ="title" value ="Duty4" />
 		<property name ="description" value ="Description duty 4" />
+		<property name ="percentage" value = "25" />
+	</bean>
+	
+	<bean name ="job5" class="acme.entities.jobs.Job">
+		<property name ="reference" value ="EMP2-JOB5"/>
+		<property name ="title" value ="Title 5" />
+		<property name ="deadline" value = "2030/12/11 23:59"/>
+		<property name ="salary" value = "45,000.98 EUR"/>
+		<property name ="description" value ="Lorem ipsum sit dolor amet."/>
+		<property name = "moreInfo" value = "http://www.example.com" />
+		<property name ="finalMode" value ="false" />
+		<property name ="employer" ref ="employer2Employer"/>
+		<property name = "descriptor" ref ="descriptorJob80"/>
+		<property name = "status" value ="PUBLISHED"/>
+	
+	</bean>
+	
+	<bean name ="descriptorJob80" class ="acme.entities.jobs.Descriptor">
+		<property name ="description" value ="Description80" />
+		<property name ="duties" ref ="DutyDescriptorJob80" />
+	</bean>
+	
+	<bean name ="DutyDescriptorJob80" class ="acme.entities.jobs.Duty">
+		<property name ="title" value ="Duty5" />
+		<property name ="description" value ="Description duty 80" />
 		<property name ="percentage" value = "25" />
 	</bean>
 	

@@ -44,10 +44,8 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("duties", entity.getDescriptor().getDuties());
-
-		request.unbind(entity, model, "title", "deadline", "description", "reference", "salary", "moreInfo", "employer", "status", "descriptor.description");
-
+		request.unbind(entity, model, "title", "deadline", "description", "reference", "salary", "moreInfo", "employer", "status", "descriptor.description", "finalMode");
+		model.setAttribute("descriptorId", entity.getDescriptor().getId());
 	}
 
 	@Override
