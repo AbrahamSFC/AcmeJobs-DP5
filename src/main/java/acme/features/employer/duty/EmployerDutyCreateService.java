@@ -96,6 +96,13 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 
 		if (!errors.hasErrors("percentage")) {
 			Boolean workloadTotal = entity.getPercentage() > 0.0;
+			Double workload = 0.0;
+			Collection<Duty> duties = this.repository.findAllDutiesByDescriptor(request.getModel().getInteger("descriptor_id2"));
+			for (Duty d : duties) {
+				workload += d.getPercentage();
+			}
+			Boolean notWorkload = workload <= 100.00;
+			errors.state(request, notWorkload, "percentage", "employer.job.error.notWorkload");
 			errors.state(request, workloadTotal, "percentage", "employer.duty.error.minWorkload");
 		}
 

@@ -64,22 +64,39 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
-		Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+		if (!errors.hasErrors("title")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("title");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.duty.error.spam");
+		}
 
-		String title = (String) request.getModel().getAttribute("title");
-		Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
-		errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.Duty.titleSpam");
-		//
-		//		if (request.getModel().getAttribute("status").equals("PUBLISHED")) {
-		//
-		//			String descriptor = (String) request.getModel().getAttribute("descriptor.description");
-		//			Collection<Duty> duties = (Collection<Duty>) request.getModel().getAttribute("descriptor.duties");
-		//			Double dutiesPercentage = duties.stream().mapToDouble(x -> x.getPercentage()).sum();
-		//			errors.state(request, dutiesPercentage == 100, "status", "employer.Duty.dutiesNot100");
-		//
-		//		}
+		if (!errors.hasErrors("description")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("description");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "description", "employer.duty.error.spam");
+		}
 
+		if (!errors.hasErrors("percentage")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("percentage");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "percentage", "employer.duty.error.spam");
+		}
+
+		if (!errors.hasErrors("percentage")) {
+			Boolean workloadTotal = entity.getPercentage() <= 100.0;
+			errors.state(request, workloadTotal, "percentage", "employer.duty.error.maxWorkload");
+		}
+
+		if (!errors.hasErrors("percentage")) {
+			Boolean workloadTotal = entity.getPercentage() > 0.0;
+			errors.state(request, workloadTotal, "percentage", "employer.duty.error.minWorkload");
+		}
 	}
 
 	@Override

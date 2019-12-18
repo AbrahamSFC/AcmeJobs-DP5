@@ -6,6 +6,7 @@
 	<%
 	String idDesc = String.format("%d", request.getAttribute("descriptorId"));
 	request.setAttribute("idDesc", idDesc);
+	session.setAttribute("idDescr", idDesc);
 	%>
 
 <acme:form readonly="false">

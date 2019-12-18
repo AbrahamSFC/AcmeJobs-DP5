@@ -23,6 +23,7 @@ public class EmployerJobListMineService implements AbstractListService<Employer,
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
+
 		return true;
 	}
 
