@@ -1,6 +1,6 @@
 employer.applications.form.label.reference= Número de referencia:
 employer.applications.form.label.moment= Momento:
-employer.applications.form.label.status= Estatus:
+employer.applications.form.label.status= Estado:
 employer.applications.form.label.status.rejected= Rechazado
 employer.applications.form.label.status.accepted= Aceptado
 employer.applications.form.label.status.pending= Pendiente
@@ -14,6 +14,6 @@ employer.applications.form.button.update = Actualizar
 
 employer.applications.list.label.reference= Número de referencia
 employer.applications.list.label.moment= Momento
-employer.applications.list.label.status= Estatus
+employer.applications.list.label.status= Estado
 
 employer.applications.invalid-rejected-reason = La razón de rechazo no puede estar vacía
