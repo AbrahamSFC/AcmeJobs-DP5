@@ -2,8 +2,11 @@
 package acme.features.worker.application;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +15,7 @@ import acme.entities.applications.Applications;
 import acme.entities.applications.Status;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
+import acme.entities.spam.Spam;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -83,9 +87,48 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert errors != null;
 
 		if (!errors.hasErrors("reference")) {
-			Applications reference = this.repository.findJobByReference(entity.getReference());
-			errors.state(request, reference == null, "reference", "worker.applications.error.unique-reference");
+			Boolean reference = true;
+			Collection<Applications> all = this.repository.findAllApplications();
+			for (Applications j : all) {
+				if (!entity.equals(j) && entity.getReference().equals(j.getReference())) {
+					reference = false;
+				}
+			}
+			errors.state(request, reference, "reference", "worker.application.error.unique-reference");
 		}
+
+		if (!errors.hasErrors("reference")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("reference");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "reference", "employer.job.error.spam");
+		}
+
+		if (!errors.hasErrors("statement")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("statement");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "statement", "worker.application.error.spam");
+		}
+
+		if (!errors.hasErrors("skills")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String description = (String) request.getModel().getAttribute("skills");
+			Double spamWordsTitle = (double) spamWords.filter(x -> description.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "skills", "worker.application.error.spam");
+		}
+
+		if (!errors.hasErrors("qualifications")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String description = (String) request.getModel().getAttribute("qualifications");
+			Double spamWordsTitle = (double) spamWords.filter(x -> description.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "qualifications", "worker.application.error.spam");
+		}
+
 	}
 
 	@Override
