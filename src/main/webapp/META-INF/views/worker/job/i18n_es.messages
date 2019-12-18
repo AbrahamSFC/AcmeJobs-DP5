@@ -4,7 +4,7 @@ worker.job.form.label.deadline = Fecha de vencimiento
 worker.job.form.label.salary = Salario
 worker.job.form.label.moreInfo = Más info
 worker.job.form.label.status = Estado
-worker.job.form.label.descriptor.description = Descripción del descriptor
+worker.job.form.label.descriptor.description = Descripción del descriptor 
 
 worker.job.form.label.description = Descripción
 worker.job.form.button.return = Volver

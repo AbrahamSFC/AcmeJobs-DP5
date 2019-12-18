@@ -11,7 +11,7 @@ worker.applications.form.button.create= Aplicar
 
 worker.applications.list.label.reference= Número de referencia
 worker.applications.list.label.moment= Momento
-worker.applications.list.label.status= Estado
+worker.applications.list.label.status= Estado 
 
 
 worker.application.error.spam = No puede contener palabras de spam

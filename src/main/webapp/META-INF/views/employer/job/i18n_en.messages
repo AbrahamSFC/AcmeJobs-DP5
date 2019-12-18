@@ -17,7 +17,7 @@ employer.job.form.button.duty.create = Create duties
 employer.job.form.panel.descriptor.duties = Duties panel
 
 employer.job.list.label.reference = Reference
-employer.job.list.label.deadline = Deadline
+employer.job.list.label.deadline = Deadline 
 employer.job.list.label.title = Title
 
 employer.job.error.must-be-after = Must be in the future

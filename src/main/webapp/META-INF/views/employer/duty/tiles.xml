@@ -14,3 +14,4 @@
 		<put-attribute name="body" type="template" value="../employer/duty/list.jsp"/>
 	</definition>
 </tiles-definitions>
+ 

@@ -586,7 +586,7 @@
 		<property name= "messageThread" ref= "messageThread001"/>
 	</bean> 
 	
-
+ 
 	
 <!--  Sponsors -->
 	<bean name ="sponsor1UserAccount" class ="acme.framework.entities.UserAccount">
