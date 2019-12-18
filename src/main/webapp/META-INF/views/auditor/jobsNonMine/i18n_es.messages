@@ -10,6 +10,7 @@
 
 auditor.jobsNonMine.form.button.return = Volver
 auditor.jobsNonMine.form.button.list-audits-job = Auditorías de este trabajo
+auditor.jobsNonMine.form.button.create= Escribir Registro de Auditoría
 
 auditor.jobsNonMine.list.label.title = Título
 auditor.jobsNonMine.list.label.deadline = Fecha límite

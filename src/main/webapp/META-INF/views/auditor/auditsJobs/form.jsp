@@ -16,10 +16,19 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-moment code="auditor.auditsJobs.form.label.moment" path="moment"/>
-	<acme:form-textbox code="auditor.auditsJobs.form.label.title" path="title"/>
-	<acme:form-textbox code="auditor.auditsJobs.form.label.status" path="status"/>
-	<acme:form-textarea code="auditor.auditsJobs.form.label.body" path="body"/>
+
+	
+		<acme:form-moment readonly="true" code="auditor.auditsJobs.form.label.moment" path="moment"/>
+		<acme:form-textbox code="auditor.auditsJobs.form.label.title" path="title"/>
+		<acme:form-textbox code="auditor.auditsJobs.form.label.status" path="status" placeholder="DRAFT/PENDING"/>
+		<acme:form-textarea code="auditor.auditsJobs.form.label.body" path="body"/>
+	
+	
+		<acme:form-submit test="${command=='create' }" code="auditor.auditsJobs.form.button.create"
+		action="/auditor/audit-record/create"/>
+	
 	
   	<acme:form-return code="auditor.auditsJobs.form.button.return"/>
 </acme:form>
+
+

@@ -37,7 +37,6 @@ public class AuditRecord extends DomainEntity {
 	@Enumerated(value = EnumType.STRING)
 	private Status				status;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date				moment;

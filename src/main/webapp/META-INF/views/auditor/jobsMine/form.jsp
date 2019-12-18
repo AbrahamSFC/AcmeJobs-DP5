@@ -33,5 +33,10 @@
 		</jstl:forEach>
 	
 	<acme:form-submit code="auditor.jobsMine.form.button.list-audits-job" action="/auditor/audit-record/list?id=${id}" method="get"/>
+	
+	<acme:form-submit code="auditor.jobsNonMine.form.button.create" method="get" action="/auditor/audit-record/create?id=${id }" />
+	
   	<acme:form-return code="auditor.jobsMine.form.button.return"/>
+  	
 </acme:form>
+
