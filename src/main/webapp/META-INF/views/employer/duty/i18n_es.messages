@@ -11,4 +11,6 @@ administrator.duty.list.button.create= Crear
 
 employer.duty.form.button.update = Actualizar
 employer.duty.form.button.create = Crear
-employer.duty.form.button.delete = Eliminar
+
+employer.duty.error.spam = No puede haber palabras del spam
+employer.duty.error.notWorkload = Los deberes deben sumar el 100% de la carga de trabajo

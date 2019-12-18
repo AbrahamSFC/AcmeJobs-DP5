@@ -5,12 +5,14 @@ employer.job.form.label.salary = Salario
 employer.job.form.label.moreInfo = Más información
 employer.job.form.label.status = Estado
 employer.job.form.label.description = Descripción
+employer.job.form.label.finalMode = Modo final
 
 employer.job.form.button.return = Volver
 employer.job.form.button.create = Crear
 employer.job.form.button.update = Actualizar
 employer.job.form.button.delete = Borrar
 employer.job.form.button.duty = Deberes
+employer.job.form.button.duty.create = Crear deberes
 
 employer.job.form.panel.descriptor.duties = Panel de servicios
 
@@ -20,5 +22,11 @@ employer.job.list.label.title = Título
 
 employer.job.error.must-be-after = Debe ser una fecha futura
 employer.job.error.incorrect-currency = Moneda incorrecta
-consumer.offer.error.unique-ticker = La referencia debe ser única
-employer.job.error.titleSpam = No puede haber palabras del spam
+employer.job.error.unique-reference = La referencia debe ser única
+employer.job.error.spam = No puede haber palabras del spam
+employer.job.error.statusIncorrect = El estado debe ser DRAFT o PUBLISHED
+employer.job.error.positive-salary = El salario debe ser mayor que cero
+employer.job.error.isPublished = El estado debe ser PUBLISHED
+employer.job.error.hasDescriptor = El trabajo debe tener descriptor
+employer.job.error.notWorkload = Los deberes deben sumar el 100% de la carga de trabajo
+employer.job.existsApplicationsForIt = No puedes borrar un trabajo que tiene solicitudes

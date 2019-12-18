@@ -11,4 +11,6 @@ administrator.duty.list.button.create= Create
 
 employer.duty.form.button.update = Update
 employer.duty.form.button.create = Create
-employer.duty.form.button.delete = Delete
+
+employer.duty.error.spam = Can't contain spam word
+employer.duty.error.workload = The duties must sum up to 100% the weekly workload

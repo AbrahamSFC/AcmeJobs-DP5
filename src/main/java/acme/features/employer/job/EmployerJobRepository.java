@@ -20,11 +20,13 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select a from Job a where a.id = ?1")
 	Job findOneJobById(int id);
 
+	@Query("select a from Job a")
+	Collection<Job> findAllJob();
 	@Query("select a from Job a where a.employer.id=?1")
 	Collection<Job> findManyByEmployerId(int employerId);
 
 	@Query("select a from Job a where a.reference = ?1")
-	Job findOneByReference(String reference);
+	Collection<Job> findOneByReference(String reference);
 
 	@Query("select a from Employer a where a.id=?1")
 	Employer findOneEmployerByUserAccount(int userId);
@@ -35,8 +37,8 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select a from Descriptor a where a.id =?1 ")
 	Descriptor findDescriptorById(int descriptorId);
 
-	@Query("select a from Duty a where a.id =?1 ")
-	Collection<Duty> findAllDutiesByDescriptor(int dutyId);
+	@Query("select a from Descriptor b join b.duties a where b.id =?1")
+	Collection<Duty> findAllDutiesByDescriptor(int descriptorId);
 
 	@Query("select a from Applications a where a.job.id=?1")
 	Collection<Applications> findApplicationsByJobId(int jobId);

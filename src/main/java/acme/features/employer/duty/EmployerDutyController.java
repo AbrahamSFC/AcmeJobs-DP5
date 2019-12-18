@@ -26,9 +26,6 @@ public class EmployerDutyController extends AbstractController<Employer, Duty> {
 	private EmployerDutyCreateService	createService;
 
 	@Autowired
-	private EmployerDutyDeleteService	deleteService;
-
-	@Autowired
 	private EmployerDutyUpdateService	updateService;
 
 
@@ -42,7 +39,6 @@ public class EmployerDutyController extends AbstractController<Employer, Duty> {
 
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 
-		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }

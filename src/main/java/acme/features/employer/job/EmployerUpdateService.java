@@ -2,6 +2,7 @@
 package acme.features.employer.job;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.stream.Collectors;
@@ -47,7 +48,7 @@ public class EmployerUpdateService implements AbstractUpdateService<Employer, Jo
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description");
+		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description", "finalMode");
 
 	}
 
@@ -83,23 +84,77 @@ public class EmployerUpdateService implements AbstractUpdateService<Employer, Jo
 			errors.state(request, okSalary, "salary", "employer.job.error.incorrect-currency");
 		}
 
-		Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
-		Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+		if (!errors.hasErrors("salary")) {
+			Boolean positive = entity.getSalary().getAmount() > 0.00;
+			errors.state(request, positive, "salary", "employer.job.error.positive-salary");
+		}
 
-		String title = (String) request.getModel().getAttribute("title");
-		Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
-		errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.job.titleSpam");
-		//
-		//		if (request.getModel().getAttribute("status").equals("PUBLISHED")) {
-		//
-		//			String descriptor = (String) request.getModel().getAttribute("descriptor.description");
-		//			Collection<Duty> duties = (Collection<Duty>) request.getModel().getAttribute("descriptor.duties");
-		//			Double dutiesPercentage = duties.stream().mapToDouble(x -> x.getPercentage()).sum();
-		//			errors.state(request, dutiesPercentage == 100, "status", "employer.job.dutiesNot100");
-		//
-		//		}
-		Boolean status = request.getModel().getAttribute("status").equals("PUBLISHED") || request.getModel().getAttribute("status").equals("DRAFT");
-		errors.state(request, status, "status", "employer.job.statusIncorrect");
+		if (!errors.hasErrors("reference")) {
+			Boolean reference = true;
+			Collection<Job> all = this.repository.findAllJob();
+			for (Job j : all) {
+				if (!entity.equals(j) && entity.getReference().equals(j.getReference())) {
+					reference = false;
+				}
+			}
+			errors.state(request, reference, "reference", "employer.job.error.unique-reference");
+		}
+
+		if (!errors.hasErrors("reference")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("reference");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "reference", "employer.job.error.spam");
+		}
+
+		if (!errors.hasErrors("title")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("title");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.job.error.spam");
+		}
+
+		if (!errors.hasErrors("description")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String description = (String) request.getModel().getAttribute("description");
+			Double spamWordsTitle = (double) spamWords.filter(x -> description.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "description", "employer.job.error.spam");
+		}
+
+		if (!errors.hasErrors("descriptor.description")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String description = (String) request.getModel().getAttribute("descriptor.description");
+			Double spamWordsTitle = (double) spamWords.filter(x -> description.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "descriptor.description", "employer.job.error.spam");
+		}
+
+		if (entity.isFinalMode()) {
+			if (!errors.hasErrors("finalMode")) {
+
+				Boolean isPublished = request.getModel().getAttribute("status").equals("PUBLISHED");
+				Boolean hasDescriptor = entity.getDescriptor() != null;
+				Double workload = 0.0;
+				Collection<Duty> duties = this.repository.findAllDutiesByDescriptor(entity.getDescriptor().getId());
+				for (Duty d : duties) {
+					workload += d.getPercentage();
+				}
+				Boolean notWorkload = workload.equals(100.00);
+
+				errors.state(request, isPublished, "finalMode", "employer.job.error.isPublished");
+				errors.state(request, hasDescriptor, "finalMode", "employer.job.error.hasDescriptor");
+				errors.state(request, notWorkload, "finalMode", "employer.job.error.notWorkload");
+
+			}
+		}
+
+		if (!errors.hasErrors("status")) {
+			Boolean status = request.getModel().getAttribute("status").equals("PUBLISHED") || request.getModel().getAttribute("status").equals("DRAFT");
+			errors.state(request, status, "status", "employer.job.error.statusIncorrect");
+		}
 
 	}
 
@@ -108,9 +163,6 @@ public class EmployerUpdateService implements AbstractUpdateService<Employer, Jo
 		assert request != null;
 		assert entity != null;
 
-		if (request.getModel().getAttribute("status").equals("PUBLISHED")) {
-			entity.setFinalMode(true);
-		}
 		for (Duty a : entity.getDescriptor().getDuties()) {
 			this.repository.save(a);
 		}

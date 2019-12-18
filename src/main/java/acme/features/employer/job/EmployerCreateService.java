@@ -55,8 +55,8 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "description", "moreInfo", "descriptor.description");
+		request.unbind(entity, model, "finalMode");
 		model.setAttribute("descriptor", entity.getDescriptor());
-
 	}
 
 	@Override
@@ -101,33 +101,66 @@ public class EmployerCreateService implements AbstractCreateService<Employer, Jo
 			errors.state(request, okSalary, "salary", "employer.job.error.incorrect-currency");
 		}
 
+		if (!errors.hasErrors("salary")) {
+			Boolean positive = entity.getSalary().getAmount() > 0.00;
+			errors.state(request, positive, "salary", "employer.job.error.positive-salary");
+		}
+
 		if (!errors.hasErrors("reference")) {
-			Job reference = this.repository.findOneByReference(entity.getReference());
-			errors.state(request, reference == null, "reference", "employer.job.error.unique-reference");
+			Boolean reference = true;
+			Collection<Job> all = this.repository.findAllJob();
+			for (Job j : all) {
+				if (!entity.equals(j) && entity.getReference().equals(j.getReference())) {
+					reference = false;
+				}
+			}
+			errors.state(request, reference, "reference", "employer.job.error.unique-reference");
+		}
+
+		if (!errors.hasErrors("reference")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String title = (String) request.getModel().getAttribute("reference");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "reference", "employer.job.error.spam");
 		}
 
 		if (!errors.hasErrors("title")) {
 			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
 			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
 			String title = (String) request.getModel().getAttribute("title");
-			Double spamWordsTitle = (double) spamWords.filter(x -> title.contains(x)).count();
-			errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.job.error.titleSpam");
+			Double spamWordsTitle = (double) spamWords.filter(x -> title.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "title", "employer.job.error.spam");
 		}
 
 		if (!errors.hasErrors("description")) {
 			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
 			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
 			String description = (String) request.getModel().getAttribute("description");
-			Double spamWordsTitle = (double) spamWords.filter(x -> description.contains(x)).count();
-			errors.state(request, spamWordsTitle < spam.getUmbral(), "description", "employer.job.error.titleSpam");
+			Double spamWordsTitle = (double) spamWords.filter(x -> description.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "description", "employer.job.error.spam");
 		}
 
+		if (!errors.hasErrors("descriptor.description")) {
+			Spam spam = this.repository.findAllSpam().stream().collect(Collectors.toList()).get(0);
+			Stream<String> spamWords = Stream.of(spam.getSpamWords().split(","));
+			String description = (String) request.getModel().getAttribute("descriptor.description");
+			Double spamWordsTitle = (double) spamWords.filter(x -> description.toLowerCase().contains(x)).count();
+			errors.state(request, spamWordsTitle < spam.getUmbral(), "descriptor.description", "employer.job.error.spam");
+
+		}
+
+		if (!errors.hasErrors("status")) {
+			Boolean status = request.getModel().getAttribute("status").equals("PUBLISHED") || request.getModel().getAttribute("status").equals("DRAFT");
+			errors.state(request, status, "status", "employer.job.error.statusIncorrect");
+		}
 	}
 
 	@Override
 	public void create(final Request<Job> request, final Job entity) {
 		assert request != null;
 		assert entity != null;
+		entity.setFinalMode(false);
 		for (Duty a : entity.getDescriptor().getDuties()) {
 			this.repository.save(a);
 		}
