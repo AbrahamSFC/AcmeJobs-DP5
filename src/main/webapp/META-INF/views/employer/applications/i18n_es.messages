@@ -1,16 +1,19 @@
-worker.applications.form.label.reference= Número de referencia:
-worker.applications.form.label.moment= Momento:
-worker.applications.form.label.status= Estatus:
-worker.applications.form.label.status.rejected= Rechazado
-worker.applications.form.label.status.accepted= Aceptado
-worker.applications.form.label.status.pending= En espera
-worker.applications.form.label.statement= Declaración:
-worker.applications.form.label.skills= Habilidades :
-worker.applications.form.label.qualification= Cualificación:
-worker.applications.form.label.rejectReason = Razón del rechazo:
+employer.applications.form.label.reference= Número de referencia:
+employer.applications.form.label.moment= Momento:
+employer.applications.form.label.status= Estatus:
+employer.applications.form.label.status.rejected= Rechazado
+employer.applications.form.label.status.accepted= Aceptado
+employer.applications.form.label.status.pending= Pendiente
+employer.applications.form.label.statement= Declaración:
+employer.applications.form.label.skills= Habilidades :
+employer.applications.form.label.qualification= Cualificación:
+employer.applications.form.label.rejectReason = Razón del rechazo:
 
-worker.applications.form.button.return= Volver
+employer.applications.form.button.return= Volver
+employer.applications.form.button.update = Actualizar
 
-worker.applications.list.label.reference= Número de referencia
-worker.applications.list.label.moment= Momento
-worker.applications.list.label.status= Estatus
+employer.applications.list.label.reference= Número de referencia
+employer.applications.list.label.moment= Momento
+employer.applications.list.label.status= Estatus
+
+employer.applications.invalid-rejected-reason = La razón de rechazo no puede estar vacía

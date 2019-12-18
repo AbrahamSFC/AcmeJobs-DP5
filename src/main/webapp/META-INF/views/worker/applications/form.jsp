@@ -16,6 +16,6 @@
 	
 	<acme:form-submit test="${command=='create' }" code="worker.applications.form.button.create"
 		action="/worker/applications/create"/>
-	<acme:form-return code="administrator.announcement.form.button.return"/> 
+	<acme:form-return code="worker.applications.form.button.return"/> 
 	
 </acme:form>
