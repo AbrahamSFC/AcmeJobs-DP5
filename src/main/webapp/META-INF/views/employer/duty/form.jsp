@@ -8,7 +8,7 @@
 	session.setAttribute("idDesc", miguel);
 
 %>
-
+ 
 
 <acme:form readonly="false">
 

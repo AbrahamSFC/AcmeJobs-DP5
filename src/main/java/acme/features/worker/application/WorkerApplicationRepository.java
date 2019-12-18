@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.applications.Applications;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
+import acme.entities.spam.Spam;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -27,6 +28,12 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select a from Applications a where a.id = ?1")
 	Applications findOneById(int id);
+
+	@Query("select a from Spam a ")
+	Collection<Spam> findAllSpam();
+
+	@Query("select a from Applications a")
+	Collection<Applications> findAllApplications();
 
 	@Query("select a from Applications a where a.worker.id=?1")
 	Collection<Applications> findManyByWorkerId(int workerId);

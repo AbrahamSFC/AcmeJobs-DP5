@@ -8,7 +8,7 @@ employer.job.form.label.description = Descripción
 
 employer.job.form.label.finalMode = Modo final
 
-employer.job.form.button.return = Volver
+employer.job.form.button.return = Volver 
 employer.job.form.button.create = Crear
 employer.job.form.button.update = Actualizar
 employer.job.form.button.delete = Borrar

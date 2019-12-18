@@ -9,7 +9,7 @@
 	<acme:list-column code="employer.duty.list.label.percentage" path="percentage" width="80%"/>
 	
 
-
+ 
 
 </acme:list>
 	<acme:form-return code="employer.duty.form.button.return" />

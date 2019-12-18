@@ -4,6 +4,7 @@ worker.applications.form.label.status= Status:
 worker.applications.form.label.statement= Statement:
 worker.applications.form.label.skills= Skills :
 worker.applications.form.label.qualification= Qualification:
+ 
 
 worker.applications.form.button.return= Return
 worker.applications.form.button.create= Apply
@@ -11,3 +12,6 @@ worker.applications.form.button.create= Apply
 worker.applications.list.label.reference= Reference number
 worker.applications.list.label.moment= Moment
 worker.applications.list.label.status= Status
+
+worker.application.error.spam = Can't contain spam word
+worker.application.error.unique-reference =  This reference already exist

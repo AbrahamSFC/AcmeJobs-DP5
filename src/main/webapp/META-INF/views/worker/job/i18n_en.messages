@@ -4,7 +4,8 @@ worker.job.form.label.deadline = Deadline
 worker.job.form.label.salary = Salary
 worker.job.form.label.moreInfo = More info
 worker.job.form.label.status = Status
-
+worker.job.form.label.descriptor.description =Descriptor description
+ 
 worker.job.form.label.description = Description
 worker.job.form.button.return = Return
 worker.job.form.button.create = Apply

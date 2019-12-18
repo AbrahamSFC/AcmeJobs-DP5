@@ -51,9 +51,9 @@ public class Applications extends DomainEntity {
 	@NotBlank
 	private String				statement;
 
-	@NotNull
+	@NotBlank
 	private String				skills;
-	@NotNull
+	@NotBlank
 	private String				qualifications;
 
 	private boolean				finalMode;

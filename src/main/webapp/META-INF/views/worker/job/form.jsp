@@ -28,11 +28,7 @@
  	
 	
 	<acme:form-return code="worker.job.form.button.return"/>  
-	
-	
-</acme:form>
-
-<acme:form>
 	<acme:form-submit code="worker.job.form.button.create" method="get" 
 	action="/worker/applications/create?id=${id}" />
-</acme:form>
+	
+</acme:form> 
