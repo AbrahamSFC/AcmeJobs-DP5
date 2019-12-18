@@ -23,6 +23,7 @@ import acme.framework.components.Request;
 import acme.framework.components.Response;
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractUpdateService;
 
@@ -83,6 +84,9 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		UserAccount user = this.repository.findOneUserAccountById(request.getPrincipal().getAccountId());
+		assert user.getId() == entity.getUserAccount().getId();
 	}
 
 	@Override

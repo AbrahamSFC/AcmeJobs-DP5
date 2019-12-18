@@ -58,6 +58,14 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `auditor_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `accepted` bit not null,
+        `user_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `authenticated` (
        `id` integer not null,
         `version` integer not null,
@@ -369,6 +377,10 @@
 
     alter table `applications` 
        add constraint UK_qmntsmtvyncblodldilmi5ge4 unique (`reference`);
+create index IDXkihe2ljbp9jg2hth3jr43muv on `auditor_request` (`accepted`);
+
+    alter table `auditor_request` 
+       add constraint UK_emf8dnwjroe97odrlcsuk1nwo unique (`user_id`);
 
     alter table `descriptor_duty` 
        add constraint UK_kvr5rclgwa51d625rmx13ke96 unique (`duties_id`);
@@ -401,7 +413,8 @@
     alter table `applications` 
        add constraint `FKj2gllxnbrvk83wdygiyxdul40` 
        foreign key (`job_id`) 
-       references `job` (`id`);
+       references `job` (`id`) 
+       on delete cascade;
 
     alter table `applications` 
        add constraint `FKfott6wy710nqog2etbl4atl2c` 
@@ -416,11 +429,17 @@
     alter table `audit_record` 
        add constraint `FKlbvbyimxf6pxvbhkdd4vfhlnd` 
        foreign key (`job_id`) 
-       references `job` (`id`);
+       references `job` (`id`) 
+       on delete cascade;
 
     alter table `auditor` 
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
        foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `auditor_request` 
+       add constraint `FKkn8ax54577bh95khvuyoapv0c` 
+       foreign key (`user_id`) 
        references `user_account` (`id`);
 
     alter table `authenticated` 

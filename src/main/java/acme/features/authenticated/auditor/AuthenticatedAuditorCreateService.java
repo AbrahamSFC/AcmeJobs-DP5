@@ -15,6 +15,7 @@ package acme.features.authenticated.auditor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.auditorRequest.AuditorRequest;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -36,7 +37,6 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 	private AuthenticatedAuditorRepository repository;
 
 
-	
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
@@ -59,7 +59,27 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "responsabilityStatement", "firm");
+		UserAccount user = this.repository.findOneUserAccountById(request.getPrincipal().getAccountId());
+		AuditorRequest auditorRequest = this.repository.findOneAuditorRequestByUserAccountId(user.getId());
+
+		if (auditorRequest == null) {
+			model.setAttribute("hasRequest", false);
+		} else {
+			model.setAttribute("hasRequest", true);
+			if (auditorRequest.isAccepted()) {
+				model.setAttribute("isAccepted", true);
+			} else {
+				model.setAttribute("isAccepted", false);
+			}
+		}
+
+		request.unbind(entity, model);
+
+		if (request.isMethod(HttpMethod.GET)) {
+			model.setAttribute("accept", "false");
+		} else {
+			request.transfer(model, "accept");
+		}
 	}
 
 	@Override
@@ -86,6 +106,10 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		UserAccount user = this.repository.findOneUserAccountById(request.getPrincipal().getAccountId());
+
+		assert entity.getUserAccount().getId() == user.getId();
 	}
 
 	@Override

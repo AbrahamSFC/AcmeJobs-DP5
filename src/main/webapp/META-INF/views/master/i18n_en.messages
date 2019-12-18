@@ -87,6 +87,9 @@ master.menu.administrator.noncommercialBanner= Non commercial banner
 
 master.menu.administrator.dashboard= Dashboard
 master.menu.administrator.chart= Chart
+
+master.menu.administrator.request.auditor-request= Requests to become an auditor
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider

@@ -83,7 +83,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
 			<acme:menu-suboption code="master.menu.administrator.chart" action="/administrator/chart/show"/>
-			
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.request.auditor-request" action="/administrator/auditor-request/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

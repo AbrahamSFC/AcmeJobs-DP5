@@ -1,0 +1,6 @@
+administrator.auditor-request.list.label.name = Nombre
+
+administrator.auditor-request.text = quiere convertirse en Auditor
+
+administrator.auditor-request.form.button.accept = Acceptar Solicitud
+administrator.auditor-request.form.button.return = Volver

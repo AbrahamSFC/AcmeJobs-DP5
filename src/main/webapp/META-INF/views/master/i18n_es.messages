@@ -90,6 +90,8 @@ master.menu.administrator.noncommercialBanner=Banner no comercial
 master.menu.administrator.dashboard= Tablero
 master.menu.administrator.chart= Gráfica
 
+master.menu.administrator.request.auditor-request= Solicitudes para convertirse en un auditor
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor

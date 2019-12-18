@@ -1,5 +1,5 @@
 /*
- * AuthenticatedWorkerRepository.java
+ * AuthenticatedConsumerRepository.java
  *
  * Copyright (c) 2019 Rafael Corchuelo.
  *
@@ -10,26 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.auditor;
+package acme.features.administrator.auditorRequest;
+
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.auditorRequest.AuditorRequest;
-import acme.entities.roles.Auditor;
-import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedAuditorRepository extends AbstractRepository {
+public interface AdministratorAuditorRequestRepository extends AbstractRepository {
 
-	@Query("select p from Auditor p where p.userAccount.id = ?1")
-	Auditor findOneAuditorByUserAccountId(int id);
+	@Query("select a from AuditorRequest a where a.id = ?1")
+	AuditorRequest findOneById(int id);
 
-	@Query("select ua from UserAccount ua where ua.id = ?1")
-	UserAccount findOneUserAccountById(int id);
-
-	@Query("select a from AuditorRequest a where a.user.id = ?1")
-	AuditorRequest findOneAuditorRequestByUserAccountId(int id);
+	@Query("select a from AuditorRequest a where a.accepted=false")
+	Collection<AuditorRequest> findAllRequestNotAccepted();
 
 }

@@ -14,6 +14,11 @@ authenticated.auditor.form.title.update = Update your auditor data
 authenticated.auditor.form.label.responsabilityStatement = Responsability Statement
 authenticated.auditor.form.label.firm = Firm
 
-authenticated.auditor.form.button.create = Register
+authenticated.auditor.form.accepted = Your request has been accepted
+authenticated.auditor.form.waiting = Your request is currently waiting to be accepted
+authenticated.auditor.form.need-approval = Before becoming Auditor you need the approval of an administrator
+
+authenticated.auditor.form.button.create-request = Request Auditor Rol
+authenticated.auditor.form.button.create = Become Auditor
 authenticated.auditor.form.button.update = Update
 authenticated.auditor.form.button.return = Return
