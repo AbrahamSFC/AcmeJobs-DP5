@@ -1,0 +1,4 @@
+worker.job.form.label.description = Description
+worker.job.form.label.moreInfo = More Info
+
+worker.job.form.button.return = Return

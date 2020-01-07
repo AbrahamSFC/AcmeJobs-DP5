@@ -315,6 +315,13 @@
 		<property name ="percentage" value = "85" />
 	</bean>
 	
+	<bean name="jobChallenge1" class="acme.entities.jobs.JobChallenge">
+		<property name ="description" value="Descrip1"/>
+		<property name="moreInfo"><null/></property>
+		<property name="job" ref="job1"/>
+		
+	</bean>
+	
 	
 	
 	<bean name ="job2" class="acme.entities.jobs.Job">
@@ -342,7 +349,13 @@
 		<property name ="percentage" value = "65" />
 	</bean>
 
-
+	<bean name="jobChallenge2" class="acme.entities.jobs.JobChallenge">
+		<property name ="description" value="Descrip2"/>
+		<property name="moreInfo"><null/></property>
+		<property name="job" ref="job2"/>
+		
+	</bean>
+	
 	<bean name ="job3" class="acme.entities.jobs.Job">
 		<property name ="reference" value ="EMP2-JOB1"/>
 		<property name ="title" value ="Title 3" />
@@ -353,7 +366,6 @@
 		<property name ="finalMode" value ="false" />
 		<property name ="employer" ref ="employer2Employer"/>
 		<property name = "descriptor" ref ="descriptorJob3"/>
-
 		<property name = "status" value ="PUBLISHED"/>
 
 	</bean>
@@ -384,6 +396,13 @@
 		<property name ="percentage" value = "95" />
 	</bean>
 	
+	<bean name="jobChallenge3" class="acme.entities.jobs.JobChallenge">
+		<property name ="description" value="Descrip3"/>
+		<property name="moreInfo"><null/></property>
+		<property name="job" ref="job3"/>
+		
+	</bean>
+	
 	<bean name ="job4" class="acme.entities.jobs.Job">
 		<property name ="reference" value ="EMP2-JOB2"/>
 		<property name ="title" value ="Title 4" />
@@ -409,6 +428,8 @@
 		<property name ="percentage" value = "25" />
 	</bean>
 	
+	
+	
 	<bean name ="job5" class="acme.entities.jobs.Job">
 		<property name ="reference" value ="EMP2-JOB5"/>
 		<property name ="title" value ="Title 5" />
@@ -433,6 +454,8 @@
 		<property name ="description" value ="Description duty 80" />
 		<property name ="percentage" value = "25" />
 	</bean>
+	
+	
 	
 	<!-- Workers  -->
 	
@@ -495,8 +518,71 @@
 		<property name ="userAccount" ref = "worker2UserAccount" />
 	</bean>
 	
+	<bean id="application01" class="acme.entities.applications.Applications">
+		<property name="reference" value="EMP1-JOB1:WRK1"/>
+		<property name="moment" value="2016/06/15 12:00"/>
+		<property name="status" value="PENDING"/>
+		<property name="statement" value="It's very difficult to find a job"/>
+		<property name="skills" value="I'm good at working with groups"/>
+		<property name="qualifications" value="Certificate B2"/>
+		<property name ="worker" ref ="worker1Worker"/>
+		<property name="job" ref="job1"/>
+		
+	</bean>
 	
+	<bean id="answer1" class="acme.entities.applications.ApplicationAnswer">
+		<property name="XXX4" value="1"/>
+		<property name="password" value="1234abcd."/>
+		<property name="application" ref="application01"/>
+	</bean>
 	
+	<bean id="application02" class="acme.entities.applications.Applications">
+		<property name="reference" value="EMP1-JOB2:WRK2"/>
+		<property name="moment" value="2016/06/15 12:00"/>
+		<property name="status" value="PENDING"/>
+		<property name="statement" value="I need a job please"/>
+		<property name="skills" value="I'm good at working alone"/>
+		<property name="qualifications" value="Certificate B2"/>
+		<property name ="worker" ref ="worker1Worker"/>
+		<property name="job" ref="job2"/>
+		
+	</bean>
+	
+	<bean id="answer2" class="acme.entities.applications.ApplicationAnswer">
+		<property name="XXX4" value="2"/>
+		<property name="password" value="abcd1234."/>
+		<property name="application" ref="application02"/>
+	</bean>
+	
+	<bean id="application03" class="acme.entities.applications.Applications">
+		<property name="reference" value="EMP2-JOB1:WRK1"/>
+		<property name="moment" value="2016/06/15 12:00"/>
+		<property name="status" value="PENDING"/>
+		<property name="statement" value="I'm the best"/>
+		<property name="skills" value="I'm good at working when i'm at the church"/>
+		<property name="qualifications" value="Certificate B1"/>
+		<property name ="worker" ref ="worker2Worker"/>
+		<property name="job" ref="job3"/>
+	</bean>
+	
+	<bean id="answer3" class="acme.entities.applications.ApplicationAnswer">
+		<property name="XXX4" value="3"/>
+		<property name="password" value=""/>
+		<property name="application" ref="application03"/>
+	</bean>
+		
+	<bean id="application04" class="acme.entities.applications.Applications">
+		<property name="reference" value="EMP2-JOB2:WRK2"/>
+		<property name="moment" value="2016/06/15 12:00"/>
+		<property name="status" value="PENDING"/>
+		<property name="statement" value="I'm very funny"/>
+		<property name="skills" value="I'm good at doing nothing"/>
+		<property name="qualifications" value="None"/>
+		<property name ="worker" ref ="worker2Worker"/>
+		<property name="job" ref="job4"/>
+	</bean>
+	
+		
 		
 	<bean id="messageThread001" class="acme.entities.messages.MessageThread">
 		<property name= "title" value= "Message thread001"/>

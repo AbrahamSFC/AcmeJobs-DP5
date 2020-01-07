@@ -7,6 +7,10 @@
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
 
+    alter table `application_answer` 
+       drop 
+       foreign key `FKb5y6eq2o9hd9ikdwxqqi6xfi5`;
+
     alter table `applications` 
        drop 
        foreign key `FKj2gllxnbrvk83wdygiyxdul40`;
@@ -59,6 +63,10 @@
        drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
 
+    alter table `job_challenge` 
+       drop 
+       foreign key `FK8d2tgi3rudg49c1n7cjp6ap3w`;
+
     alter table `message` 
        drop 
        foreign key `FKn5adlx3oqjna7aupm8gwg3fuj`;
@@ -92,6 +100,8 @@
     drop table if exists `announcement`;
 
     drop table if exists `anonymous`;
+
+    drop table if exists `application_answer`;
 
     drop table if exists `applications`;
 
@@ -130,6 +140,8 @@
     drop table if exists `investor_records`;
 
     drop table if exists `job`;
+
+    drop table if exists `job_challenge`;
 
     drop table if exists `message`;
 

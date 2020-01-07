@@ -18,4 +18,7 @@
 		action="/worker/applications/create"/>
 	<acme:form-return code="worker.applications.form.button.return"/> 
 	
+	<acme:form-submit code="worker.answer.form.button.XXX4" method="get" 
+	action="/worker/answer/list" />
+
 </acme:form>

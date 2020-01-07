@@ -23,6 +23,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `application_answer` (
+       `id` integer not null,
+        `version` integer not null,
+        `xxx4` varchar(255),
+        `password` varchar(255),
+        `application_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `applications` (
        `id` integer not null,
         `version` integer not null,
@@ -218,6 +227,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `job_challenge` (
+       `id` integer not null,
+        `version` integer not null,
+        `description` varchar(255),
+        `more_info` varchar(255),
+        `job_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `message` (
        `id` integer not null,
         `version` integer not null,
@@ -399,6 +417,11 @@
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `application_answer` 
+       add constraint `FKb5y6eq2o9hd9ikdwxqqi6xfi5` 
+       foreign key (`application_id`) 
+       references `applications` (`id`);
+
     alter table `applications` 
        add constraint `FKj2gllxnbrvk83wdygiyxdul40` 
        foreign key (`job_id`) 
@@ -465,6 +488,11 @@
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
        foreign key (`employer_id`) 
        references `employer` (`id`);
+
+    alter table `job_challenge` 
+       add constraint `FK8d2tgi3rudg49c1n7cjp6ap3w` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `message` 
        add constraint `FKn5adlx3oqjna7aupm8gwg3fuj` 

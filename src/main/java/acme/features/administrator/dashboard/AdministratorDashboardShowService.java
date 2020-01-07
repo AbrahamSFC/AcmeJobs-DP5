@@ -34,7 +34,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "avgJobsEmployer", "avgApplicationsEmployer", "avgApplicationsWorker");
+		request.unbind(entity, model, "ratioJobsWithJobChallenges", "ratioJobChallengesWithApplicationAnswer");
+		request.unbind(entity, model, "ratioApplicationsWithApplicationsAnswerWithPassword", "avgJobsEmployer");
+		request.unbind(entity, model, "avgApplicationsEmployer", "avgApplicationsWorker");
 	}
 
 	@Override
@@ -42,6 +44,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert request != null;
 
 		Dashboard result = new Dashboard();
+		result.setRatioJobsWithJobChallenges(this.repository.getRatioJobsWithJobChallenges());
+		result.setRatioJobChallengesWithApplicationAnswer(this.repository.getRatioJobChallengesWithApplicationAnswer());
+		result.setRatioApplicationsWithApplicationsAnswerWithPassword(this.repository.getRatioApplicationsWithApplicationsAnswerWithPassword());
 		result.setAvgJobsEmployer(this.repository.getAverageJobsPerEmployer());
 		result.setAvgApplicationsEmployer(this.repository.getAverageApplicationsPerEmployer());
 		result.setAvgApplicationsWorker(this.repository.getAverageApplicationsPerWorker());
